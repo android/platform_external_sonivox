@@ -74,14 +74,22 @@ loop:
 	
 	LDR		r5, [pnInputBuffer], #4			@fetch 2nd output sample
 
-	SMULWB	r4, r4, nGain					@output = gain * input
+#ifndef __ARM_ARCH_4__
+@	SMULWB	r4, r4, nGain					@output = gain * input
+#else
+@	MULS	r4, r4, nGain
+#endif
 	
 	CMP		r4, r6							@check for positive saturation
 	MOVGT	r4, r6							@saturate
 	CMN		r4, r6							@check for negative saturation
 	MVNLT	r4, r6							@saturate
 	
-	SMULWB	r5, r5, nGain					@output = gain * input
+#ifndef __ARM_ARCH_4__
+@	SMULWB	r5, r5, nGain					@output = gain * input
+#else
+@	MULS	r5, r5, nGain
+#endif
 	
 	STRH	r4, [pnOutputBuffer], #NEXT_OUTPUT_PCM	@save 1st output sample
 	

@@ -88,25 +88,46 @@ WT_VoiceFilter:
 	LDRSH	tmp0, [pBuffer]					@ fetch sample
 
 FilterLoop:
-	SMULBB	tmp2, z1, b1					@ tmp2 = z1 * -b1
-	SMLABB	tmp2, z2, b2, tmp2				@ tmp2 = (-b1 * z1) + (-b2 * z2)
+#ifndef __ARM_ARCH_4__
+@	SMULBB	tmp2, z1, b1					@ tmp2 = z1 * -b1
+@	SMLABB	tmp2, z2, b2, tmp2				@ tmp2 = (-b1 * z1) + (-b2 * z2)
+#else
+@	MULS	tmp2, z1, b1
+@	MULS	tmp1, z2, b2
+@	ADD	tmp2, tmp2, tmp1
+#endif
 
 	MOV		z2, z1							@ delay line
 
-	SMLABB	tmp0, tmp0, K, tmp2				@ tmp1 = (K * x[n]) + (-b1 * z1) + (-b2 * z2)
-	
+#ifndef __ARM_ARCH_4__
+@	SMLABB	tmp0, tmp0, K, tmp2				@ tmp1 = (K * x[n]) + (-b1 * z1) + (-b2 * z2)
+#else
+@	MULS	tmp0, tmp0, K
+@	ADD	tmp0, tmp0, tmp2
+#endif
 	LDRSH	tmp1, [pBuffer, #NEXT_OUTPUT_PCM]	@ fetch next sample
 	
 	MOV		z1, tmp0, ASR #14				@ shift result to low word
 	STRH	z1, [pBuffer], #NEXT_OUTPUT_PCM	@ write back to buffer
 
-	SMULBB	tmp2, z1, b1					@ tmp2 = z1 * -b1
+#ifndef __ARM_ARCH_4__
+@	SMULBB	tmp2, z1, b1					@ tmp2 = z1 * -b1
+#else
+@	MULS	tmp2, z1, b1
+#endif
 	
 	SUBS	numSamples, numSamples, #2		@ unroll loop once
 
-	SMLABB	tmp2, z2, b2, tmp2				@ tmp2 = (-b1 * z1) + (-b2 * z2)
+#ifndef __ARM_ARCH_4__
+@	SMLABB	tmp2, z2, b2, tmp2				@ tmp2 = (-b1 * z1) + (-b2 * z2)
 
-	SMLABB	tmp1, tmp1, K, tmp2				@ tmp1 = (K * x[n]) + (-b1 * z1) + (-b2 * z2)
+@	SMLABB	tmp1, tmp1, K, tmp2				@ tmp1 = (K * x[n]) + (-b1 * z1) + (-b2 * z2)
+#else
+@	MULS	tmp0, z2, b2
+@	ADD	tmp2, tmp0, tmp2
+@	MULS	tmp1, tmp1, K
+@	ADD	tmp1, tmp1, tmp2
+#endif
 
 	MOV		z2, z1							@ delay line
 

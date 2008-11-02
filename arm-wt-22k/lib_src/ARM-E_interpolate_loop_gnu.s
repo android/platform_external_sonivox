@@ -92,7 +92,11 @@ InterpolationLoop:
 	ADD		tmp2, phaseIncrement, phaseFrac	@ increment pointer here to avoid pipeline stall
 
 	SUB		tmp1, tmp1, tmp0						@ tmp1 = x1 - x0
-	SMULBB	tmp1, phaseFrac, tmp1			@ tmp1 = phaseFrac * tmp2
+#ifndef __ARM_ARCH_4__
+@	SMULBB	tmp1, phaseFrac, tmp1			@ tmp1 = phaseFrac * tmp2
+#else
+	MULS	tmp1, phaseFrac, tmp1
+#endif
 
 @ This section performs a gain adjustment of -12dB for 16-bit samples
 @ or +36dB for 8-bit samples. For a high quality synthesizer, the output

@@ -89,17 +89,31 @@ WT_VoiceGain:
 	LDRSH	gainRight, [pWTVoice, #m_gainRight]
 	
 	MOV		gainIncLeft, gainLeft
-	SMULBB	gainLeft, tmp0, gainLeft
+#ifndef __ARM_ARCH_4__
+@	SMULBB	gainLeft, tmp0, gainLeft
+#else
+	MULS	gainLeft, tmp0, gainLeft
+#endif
 
-	SMULBB	gainIncLeft, tmp1, gainIncLeft
+#ifndef __ARM_ARCH_4__
+@	SMULBB	gainIncLeft, tmp1, gainIncLeft
+#else
+	MULS	gainIncLeft, tmp1, gainIncLeft
+#endif
 	SUB		gainIncLeft, gainIncLeft, gainLeft
 	MOV		gainLeft, gainLeft, ASR #(NUM_MIXER_GUARD_BITS - 2)
 	MOV		gainIncLeft, gainIncLeft, ASR #(SYNTH_UPDATE_PERIOD_IN_BITS + NUM_MIXER_GUARD_BITS - 2)
 
 	MOV		gainIncRight, gainRight
-	SMULBB	gainRight, tmp0, gainRight
+#ifndef __ARM_ARCH_4__
+@	SMULBB	gainRight, tmp0, gainRight
 
-	SMULBB	gainIncRight, tmp1, gainIncRight
+@	SMULBB	gainIncRight, tmp1, gainIncRight
+#else
+	MULS	gainRight, tmp0, gainRight
+
+	MULS	gainIncRight, tmp1, gainIncRight
+#endif
 	SUB		gainIncRight, gainIncRight, gainRight
 	MOV		gainRight, gainRight, ASR #(NUM_MIXER_GUARD_BITS - 2)
 	MOV		gainIncRight, gainIncRight, ASR #(SYNTH_UPDATE_PERIOD_IN_BITS + NUM_MIXER_GUARD_BITS - 2)
@@ -111,7 +125,12 @@ StereoGainLoop:
 
 	ADD		gainLeft, gainLeft, gainIncLeft
 
-	SMLAWB	tmp1, gainLeft, tmp0, tmp1
+#ifndef __ARM_ARCH_4__
+@	SMLAWB	tmp1, gainLeft, tmp0, tmp1
+#else
+	MULS	tmp2, gainLeft, tmp0
+	ADD	tmp1, tmp1, tmp2
+#endif
 
 	LDR		tmp2, [pMixBuffer, #4]
 
@@ -119,7 +138,12 @@ StereoGainLoop:
 
 	STR		tmp1, [pMixBuffer], #4
 
-	SMLAWB	tmp2, gainRight, tmp0, tmp2
+#ifndef __ARM_ARCH_4__
+@	SMLAWB	tmp2, gainRight, tmp0, tmp2
+#else
+	MULS	tmp1, gainRight, tmp0
+	ADD	tmp2, tmp1, tmp2
+#endif
 
 	SUBS	numSamples, numSamples, #1
 
@@ -147,7 +171,11 @@ MonoGainLoop:
 	
 	LDR		tmp1, [pMixBuffer]						@ get left channel output sample
 	ADD		gain, gain, gainIncrement				@ gain step to eliminate zipper noise
-	SMULWB	tmp0, gain, tmp0 						@ sample * local gain
+#ifndef __ARM_ARCH_4__
+@	SMULWB	tmp0, gain, tmp0 						@ sample * local gain
+#else
+	MULS	tmp0, gain, tmp0
+#endif
 
 	MOV		tmp0, tmp0, ASR #1						@ add 6dB headroom
 	ADD 	tmp1, tmp0, tmp1
