@@ -33,7 +33,7 @@
 #define _EAS_SMF_DATA_H
 
 #ifndef MAX_SMF_STREAMS
-#define MAX_SMF_STREAMS 			17
+#define MAX_SMF_STREAMS 			128
 #endif
 
 /* offsets in to the SMF file */

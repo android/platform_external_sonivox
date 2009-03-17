@@ -1276,7 +1276,7 @@ static EAS_RESULT Parse_data (SDLS_SYNTHESIZER_DATA *pDLSData, EAS_I32 pos, EAS_
 
 	return EAS_SUCCESS;
 }
-#elif defined_16_BIT_SAMPLES)
+#elif defined(_16_BIT_SAMPLES)
 #error "16-bit DLS conversion not implemented yet"
 #else
 #error "Must specifiy _8_BIT_SAMPLES or _16_BIT_SAMPLES"

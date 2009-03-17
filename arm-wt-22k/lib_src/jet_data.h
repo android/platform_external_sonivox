@@ -61,8 +61,8 @@
  * JET event definitions
  *----------------------------------------------------------------------------
 */
-#define JET_EVENT_APP_LOW			85
-#define JET_EVENT_APP_HIGH			90
+#define JET_EVENT_APP_LOW			80
+#define JET_EVENT_APP_HIGH			83
 #define JET_EVENT_LOW				102
 #define JET_EVENT_HIGH				119
 #define JET_EVENT_MARKER			102

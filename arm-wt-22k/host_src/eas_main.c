@@ -99,7 +99,7 @@ static EAS_RESULT PlayFile (EAS_DATA_HANDLE easData, const char* filename, const
 	/* call EAS library to open file */
 	file.path = filename;
 	file.fd = 0;
-	if ((reportResult = EAS_OpenFile(easData, &file, &handle, NULL)) != EAS_SUCCESS)
+	if ((reportResult = EAS_OpenFile(easData, &file, &handle)) != EAS_SUCCESS)
 	{
 		{ /* dpp: EAS_ReportEx(_EAS_SEVERITY_ERROR, "EAS_OpenFile returned %ld\n", reportResult); */ }
 		return reportResult;

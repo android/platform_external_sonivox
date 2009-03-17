@@ -615,9 +615,7 @@ EAS_RESULT EAS_OpenJETStream (EAS_DATA_HANDLE pEASData, EAS_FILE_HANDLE fileHand
  *
  *----------------------------------------------------------------------------
 */
-extern int *EAS_HWGetMemFailVar(EAS_FILE_HANDLE);
-
-EAS_PUBLIC EAS_RESULT EAS_OpenFile (EAS_DATA_HANDLE pEASData, EAS_FILE_LOCATOR locator, EAS_HANDLE *ppStream, int **memfailvar)
+EAS_PUBLIC EAS_RESULT EAS_OpenFile (EAS_DATA_HANDLE pEASData, EAS_FILE_LOCATOR locator, EAS_HANDLE *ppStream)
 {
 	EAS_RESULT result;
 	EAS_FILE_HANDLE fileHandle;
@@ -658,10 +656,6 @@ EAS_PUBLIC EAS_RESULT EAS_OpenFile (EAS_DATA_HANDLE pEASData, EAS_FILE_LOCATOR l
 			/* save the parser pointer and file handle */
 			EAS_InitStream(&pEASData->streams[streamNum], pParserModule, streamHandle);
 			*ppStream = &pEASData->streams[streamNum];
-			if (memfailvar)
-			{
-				*memfailvar = EAS_HWGetMemFailVar(fileHandle);
-			}
 			return EAS_SUCCESS;
 		}
 

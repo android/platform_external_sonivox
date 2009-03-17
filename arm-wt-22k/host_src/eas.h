@@ -466,7 +466,6 @@ EAS_PUBLIC EAS_RESULT EAS_SetMaxPCMStreams (EAS_DATA_HANDLE pEASData, EAS_HANDLE
  * pEASData			- pointer to overall EAS data structure
  * locator			- pointer to filename or other locating information
  * pStreamHandle	- pointer to stream handle variable
- * memfailvar		- pointer to var to set to indicate memory access failure
  *		
  * Outputs:
  * 
@@ -475,7 +474,7 @@ EAS_PUBLIC EAS_RESULT EAS_SetMaxPCMStreams (EAS_DATA_HANDLE pEASData, EAS_HANDLE
  *
  *----------------------------------------------------------------------------
 */
-EAS_PUBLIC EAS_RESULT EAS_OpenFile (EAS_DATA_HANDLE pEASData, EAS_FILE_LOCATOR locator, EAS_HANDLE *pStreamHandle, int **memfailvar);
+EAS_PUBLIC EAS_RESULT EAS_OpenFile (EAS_DATA_HANDLE pEASData, EAS_FILE_LOCATOR locator, EAS_HANDLE *pStreamHandle);
 
 #ifdef MMAPI_SUPPORT
 /*----------------------------------------------------------------------------

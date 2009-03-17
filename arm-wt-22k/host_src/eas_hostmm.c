@@ -5,15 +5,9 @@
  *
  * Contents and purpose:
  * This file contains the host wrapper functions for stdio, stdlib, etc.
- * This is a sample version that maps the requested files to an
- * allocated memory block and uses in-memory pointers to replace
- * file system calls. The file locator (EAS_FILE_LOCATOR) handle passed
- * HWOpenFile is the same one that is passed to EAS_OpenFile. If your
- * system stores data in fixed locations (such as flash) instead of
- * using a file system, you can use the locator handle to point to
- * your memory. You will need a way of knowing the length of the
- * data stored at that location in order to respond correctly in the
- * HW_FileLength function.
+ * This is a sample version that reads from a filedescriptor.
+ * The file locator (EAS_FILE_LOCATOR) handle passed to
+ * HWOpenFile is the same one that is passed to EAS_OpenFile.
  * 
  * Modify this file to suit the needs of your particular system.
  *
@@ -21,11 +15,9 @@
  * a MIDI type 1 file that can be played. 
  *
  * EAS_HW_FILE is a structure to support the file I/O functions. It
- * comprises the base memory pointer, the file read pointer, and
- * the dup flag, which when sets, indicates that the file handle has
- * been duplicated. If your system uses in-memory resources, you
- * can eliminate the duplicate handle logic, and simply copy the 
- * base memory pointer and file read pointer to the duplicate handle.
+ * comprises the file descriptor, the file read pointer, and
+ * the dup flag, which when set, indicates that the file handle has
+ * been duplicated, and offset and length within the file.
  *
  * Copyright 2005 Sonic Network Inc.
 
@@ -94,12 +86,8 @@ typedef struct eas_hw_file_tag
     EAS_I32 fileSize;
     EAS_I32 filePos;
     EAS_BOOL dup;
-    EAS_U8 *buffer;
-    EAS_I32 length;
+    int fd;
     EAS_I32 offset;
-    void *oldsigbushandler;
-    struct mediasigbushandler sigbushandler;
-    int memfailed;
 } EAS_HW_FILE;
 
 typedef struct eas_hw_inst_data_tag
@@ -118,6 +106,8 @@ pthread_key_t EAS_sigbuskey;
 */
 EAS_RESULT EAS_HWInit (EAS_HW_DATA_HANDLE *pHWInstData)
 {
+    EAS_HW_FILE *file;
+    int i;
 
     /* need to track file opens for duplicate handles */
     *pHWInstData = malloc(sizeof(EAS_HW_INST_DATA));
@@ -125,6 +115,15 @@ EAS_RESULT EAS_HWInit (EAS_HW_DATA_HANDLE *pHWInstData)
         return EAS_ERROR_MALLOC_FAILED;
 
     EAS_HWMemSet(*pHWInstData, 0, sizeof(EAS_HW_INST_DATA));
+    
+    file = (*pHWInstData)->files;
+    for (i = 0; i < EAS_MAX_FILE_HANDLES; i++)
+    {
+        file->fd = -1;
+        file++;
+    }
+
+
     return EAS_SUCCESS;
 }
 
@@ -233,12 +232,6 @@ EAS_I32 EAS_HWMemCmp (const void *s1, const void *s2, EAS_I32 amount)
  *
  *----------------------------------------------------------------------------
 */
-int * EAS_HWGetMemFailVar(EAS_FILE_HANDLE pFile)
-{
-    EAS_HW_FILE *file = pFile;
-    return &file->memfailed;
-}
-
 EAS_RESULT EAS_HWOpenFile (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_LOCATOR locator, EAS_FILE_HANDLE *pFile, EAS_FILE_MODE mode)
 {
     EAS_HW_FILE *file;
@@ -257,7 +250,7 @@ EAS_RESULT EAS_HWOpenFile (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_LOCATOR locat
     for (i = 0; i < EAS_MAX_FILE_HANDLES; i++)
     {
         /* is this slot being used? */
-        if (file->buffer == NULL)
+        if (file->fd < 0)
         {
             if (locator->path) {
                 /* open the file */
@@ -271,10 +264,14 @@ EAS_RESULT EAS_HWOpenFile (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_LOCATOR locat
 
             /* determine the file size */
             if (locator->length == 0) {
-                if (lseek(fd, 0, SEEK_END) < 0)
+                if (lseek(fd, 0, SEEK_END) < 0) {
+                    close(fd);
                     return EAS_ERROR_FILE_LENGTH;
-                if ((file->fileSize = lseek(fd, 0, SEEK_CUR)) == -1L)
+                }
+                if ((file->fileSize = lseek(fd, 0, SEEK_CUR)) == -1L) {
+                    close(fd);
                     return EAS_ERROR_FILE_LENGTH;
+                }
             }
 
             // file size was passed in
@@ -282,33 +279,12 @@ EAS_RESULT EAS_HWOpenFile (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_LOCATOR locat
                 file->fileSize = (EAS_I32) locator->length;
             }
 
-            // round offset down to page size
-            long pagesize = sysconf(_SC_PAGE_SIZE);
-            long mapoffset = locator->offset & ~(pagesize - 1);
-            long mapoffsetdelta = locator->offset - mapoffset;
-
-            void * bar = mmap(0, file->fileSize + mapoffsetdelta, PROT_READ, MAP_PRIVATE, fd, mapoffset);
-            if (bar == MAP_FAILED) {
-                    LOGE("error mapping file %d (%ld/%ld): %s\n", fd, mapoffset,
-                            file->fileSize + mapoffsetdelta, strerror(errno));
-                    close(fd);
-                    return EAS_FAILURE;
-            }
-            file->buffer = bar;
-            file->length = file->fileSize + mapoffsetdelta;
-            file->offset = mapoffsetdelta;
-            close(fd);
+            file->fd = fd;
+            file->offset = locator->offset;
 
             /* initialize some values */
             file->filePos = 0;
             file->dup = EAS_FALSE;
-            file->memfailed = 0;
-            file->sigbushandler.handlesigbus = NULL;
-            file->sigbushandler.sigbusvar = &file->memfailed;
-            file->sigbushandler.base = file->buffer;
-            file->sigbushandler.len = file->length;
-            file->oldsigbushandler = pthread_getspecific(EAS_sigbuskey);
-            pthread_setspecific(EAS_sigbuskey, &file->sigbushandler);
 
             *pFile = file;
             return EAS_SUCCESS;
@@ -335,7 +311,7 @@ EAS_RESULT EAS_HWReadFile (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file, 
     EAS_I32 count;
 
     /* make sure we have a valid handle */
-    if (file->buffer == NULL)
+    if (file->fd < 0)
         return EAS_ERROR_INVALID_HANDLE;
 
     if (n < 0)
@@ -349,10 +325,10 @@ EAS_RESULT EAS_HWReadFile (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file, 
       return EAS_EOF;
 
     /* copy the data to the requested location, and advance the pointer */
-    if (count)
-        EAS_HWMemCpy(pBuffer, &file->buffer[file->filePos + file->offset], count);
-    if (*file->sigbushandler.sigbusvar)
-        count = 0;
+    if (count) {
+        lseek(file->fd, file->filePos + file->offset, SEEK_SET);
+        count = read(file->fd, pBuffer, count);
+    }
     file->filePos += count;
     *pBytesRead = count;
 
@@ -373,32 +349,15 @@ EAS_RESULT EAS_HWReadFile (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file, 
 /*lint -esym(715, hwInstData) hwInstData available for customer use */
 EAS_RESULT EAS_HWGetByte (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file, void *p)
 {
-
-    /* make sure we have a valid handle */
-    if (file->buffer == NULL)
-        return EAS_ERROR_INVALID_HANDLE;
-
-    /* check for end of file */
-    if (file->filePos >= file->fileSize)
-    {
-        *((EAS_U8*) p) = 0;
-        return EAS_EOF;
-    }
-
-    /* get a character from the buffer */
-    *((EAS_U8*) p) = file->buffer[file->filePos++ + file->offset];
-    if (*file->sigbushandler.sigbusvar)
-    {
-        return EAS_EOF;
-    }
-    return EAS_SUCCESS;
+    EAS_I32 numread;
+    return EAS_HWReadFile(hwInstData, file, p, 1, &numread);
 }
 
 /*----------------------------------------------------------------------------
  *
  * EAS_HWGetWord
  *
- * Returns the current location in the file 
+ * Read a 16 bit word from a file
  *
  *----------------------------------------------------------------------------
 */
@@ -469,7 +428,7 @@ EAS_RESULT EAS_HWFilePos (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file, E
 {
 
     /* make sure we have a valid handle */
-    if (file->buffer == NULL)
+    if (file->fd < 0)
         return EAS_ERROR_INVALID_HANDLE;
 
     *pPosition = file->filePos;
@@ -489,7 +448,7 @@ EAS_RESULT EAS_HWFileSeek (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file, 
 {
 
     /* make sure we have a valid handle */
-    if (file->buffer == NULL)
+    if (file->fd < 0)
         return EAS_ERROR_INVALID_HANDLE;
 
     /* validate new position */	
@@ -514,7 +473,7 @@ EAS_RESULT EAS_HWFileSeekOfs (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE fil
 {
 
     /* make sure we have a valid handle */
-    if (file->buffer == NULL)
+    if (file->fd < 0)
         return EAS_ERROR_INVALID_HANDLE;
 
     /* determine the file position */	
@@ -540,7 +499,7 @@ EAS_RESULT EAS_HWFileLength (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file
 {
 
     /* make sure we have a valid handle */
-    if (file->buffer == NULL)
+    if (file->fd < 0)
         return EAS_ERROR_INVALID_HANDLE;
 
     *pLength = file->fileSize;
@@ -561,7 +520,7 @@ EAS_RESULT EAS_HWDupHandle (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file,
     int i;
 
     /* make sure we have a valid handle */
-    if (file->buffer == NULL)
+    if (file->fd < 0)
         return EAS_ERROR_INVALID_HANDLE;
 
     /* find an empty entry in the file table */
@@ -569,17 +528,13 @@ EAS_RESULT EAS_HWDupHandle (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file,
     for (i = 0; i < EAS_MAX_FILE_HANDLES; i++)
     {
         /* is this slot being used? */
-        if (dupFile->buffer == NULL)
+        if (dupFile->fd < 0)
         {
-
             /* copy info from the handle to be duplicated */
             dupFile->filePos = file->filePos;
             dupFile->fileSize = file->fileSize;
-            dupFile->buffer = file->buffer;
-            dupFile->length = file->length;
+            dupFile->fd = file->fd;
             dupFile->offset = file->offset;
-            dupFile->sigbushandler = file->sigbushandler;
-            dupFile->oldsigbushandler = file->oldsigbushandler;
 
             /* set the duplicate handle flag */
             dupFile->dup = file->dup = EAS_TRUE;
@@ -609,7 +564,7 @@ EAS_RESULT EAS_HWCloseFile (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file1
 
 
     /* make sure we have a valid handle */
-    if (file1->buffer == NULL)
+    if (file1->fd < 0)
         return EAS_ERROR_INVALID_HANDLE;
 
     /* check for duplicate handle */
@@ -620,13 +575,13 @@ EAS_RESULT EAS_HWCloseFile (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file1
         for (i = 0; i < EAS_MAX_FILE_HANDLES; i++)
         {
             /* check for duplicate */
-            if ((file1 != file2) && (file2->buffer == file1->buffer))
+            if ((file1 != file2) && (file2->fd == file1->fd))
             {
                 /* is there more than one duplicate? */
                 if (dupFile != NULL)
                 {
                     /* clear this entry and return */
-                    file1->buffer = NULL;
+                    file1->fd = -1;
                     return EAS_SUCCESS;
                 }
 
@@ -645,19 +600,14 @@ EAS_RESULT EAS_HWCloseFile (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE file1
             return EAS_ERROR_HANDLE_INTEGRITY;
 
         /* clear this entry and return */
-        file1->buffer = NULL;
+        file1->fd = -1;
         return EAS_SUCCESS;
     }
 
-    /* no duplicates -free the buffer */
-    int e = munmap(file1->buffer, file1->length);
-    if (e != 0) {
-        LOGE("error unmapping %p/%ld: %s\n", file1->buffer, file1->length, strerror(errno));
-    }
-    pthread_setspecific(EAS_sigbuskey, file1->oldsigbushandler);
-
+    /* no duplicates - close the file */
+    close(file1->fd);
     /* clear this entry and return */
-    file1->buffer = NULL;
+    file1->fd = -1;
     return EAS_SUCCESS;
 }
 
