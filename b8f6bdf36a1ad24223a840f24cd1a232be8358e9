@@ -1,0 +1,8 @@
+Change-Id: Ib8f6bdf36a1ad24223a840f24cd1a232be8358e9
+Code-Review+2: Jean-Baptiste Queru <jbq@google.com>
+Verified+1: Jean-Baptiste Queru <jbq@google.com>
+Submitted-by: Jean-Baptiste Queru <jbq@google.com>
+Submitted-at: Wed, 18 Mar 2009 13:52:20 -0700
+Reviewed-on: https://review.source.android.com/9167
+Project: platform/external/sonivox
+Branch: refs/heads/master
