@@ -53,12 +53,12 @@ LOCAL_CFLAGS+= -O2 -D UNIFIED_DEBUG_MESSAGES -D EAS_WT_SYNTH \
 	-D _8_BIT_SAMPLES -D _FILTER_ENABLED \
 	-D DLS_SYNTHESIZER \
 	-D _REVERB_ENABLED
-	
+
 # not using these options
 # -D _WAVE_PARSER
 # -D _IMA_DECODER (needed for IMA-ADPCM wave files)
 # -D _CHORUS_ENABLED
-  	
+
 LOCAL_C_INCLUDES:= \
 	$(LOCAL_PATH)/host_src \
 	$(LOCAL_PATH)/lib_src
@@ -74,13 +74,13 @@ LOCAL_COPY_HEADERS := \
 	host_src/eas_reverb.h \
 	host_src/jet.h
 
-ifeq ($(TARGET_ARCH),arm)
-LOCAL_SRC_FILES+= \
+LOCAL_SRC_FILES_arm += \
 	lib_src/ARM-E_filter_gnu.s \
 	lib_src/ARM-E_interpolate_loop_gnu.s \
 	lib_src/ARM-E_interpolate_noloop_gnu.s \
 	lib_src/ARM-E_mastergain_gnu.s \
-	lib_src/ARM-E_voice_gain_gnu.s
+	lib_src/ARM-E_voice_gain_gnu.s \
+	lib_src/ARM_synth_constants_gnu.inc
 
 asm_flags := \
 	-I $(LOCAL_PATH)/lib_src \
@@ -89,7 +89,7 @@ asm_flags := \
 	--defsym FILTER_ENABLED=1 \
 	--defsym SAMPLES_8_BIT=1
 
-LOCAL_ASFLAGS := \
+LOCAL_ASFLAGS_arm := \
 	$(foreach f,$(asm_flags),-Wa,"$(f)")
 
 # .s files not ported for Clang assembler yet.
@@ -98,10 +98,7 @@ LOCAL_CLANG_ASFLAGS_arm64 += -no-integrated-as
 
 asm_flags :=
 
-LOCAL_CFLAGS += -D NATIVE_EAS_KERNEL
-
-LOCAL_COPY_HEADERS += lib_src/ARM_synth_constants_gnu.inc
-endif
+LOCAL_CFLAGS_arm += -D NATIVE_EAS_KERNEL
 
 LOCAL_SHARED_LIBRARIES := \
 	libutils libcutils
