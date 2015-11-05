@@ -74,8 +74,7 @@ LOCAL_COPY_HEADERS := \
 	host_src/eas_reverb.h \
 	host_src/jet.h
 
-ifeq ($(TARGET_ARCH),arm)
-LOCAL_SRC_FILES+= \
+LOCAL_SRC_FILES_arm += \
 	lib_src/ARM-E_filter_gnu.s \
 	lib_src/ARM-E_interpolate_loop_gnu.s \
 	lib_src/ARM-E_interpolate_noloop_gnu.s \
@@ -89,7 +88,7 @@ asm_flags := \
 	--defsym FILTER_ENABLED=1 \
 	--defsym SAMPLES_8_BIT=1
 
-LOCAL_ASFLAGS := \
+LOCAL_ASFLAGS_arm := \
 	$(foreach f,$(asm_flags),-Wa,"$(f)")
 
 # .s files not ported for Clang assembler yet.
@@ -98,8 +97,9 @@ LOCAL_CLANG_ASFLAGS_arm64 += -no-integrated-as
 
 asm_flags :=
 
-LOCAL_CFLAGS += -D NATIVE_EAS_KERNEL
+LOCAL_CFLAGS_arm += -D NATIVE_EAS_KERNEL
 
+ifeq ($(TARGET_ARCH),arm)
 LOCAL_COPY_HEADERS += lib_src/ARM_synth_constants_gnu.inc
 endif
 
