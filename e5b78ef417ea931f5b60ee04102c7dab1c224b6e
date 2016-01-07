@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca202730_aea76bdf",
+        "filename": "arm-wt-22k/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2016-01-07T18:34:20Z",
+      "side": 1,
+      "message": "This doesn\u0027t work for arm64 multilib build.\nLooks like we can just remove the conditional here, because ARM_synth_constants_gnu.inc is only included by LOCAL_SRC_FILES_arm and it doesn\u0027t hurt for other builds.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 25
+      },
+      "revId": "e5b78ef417ea931f5b60ee04102c7dab1c224b6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
