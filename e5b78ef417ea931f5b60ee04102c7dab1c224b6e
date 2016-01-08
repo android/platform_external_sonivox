@@ -22,6 +22,30 @@
       "revId": "e5b78ef417ea931f5b60ee04102c7dab1c224b6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa65b397_8875b713",
+        "filename": "arm-wt-22k/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1041813
+      },
+      "writtenOn": "2016-01-08T03:37:15Z",
+      "side": 1,
+      "message": "updated as described here.",
+      "parentUuid": "ca202730_aea76bdf",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 25
+      },
+      "revId": "e5b78ef417ea931f5b60ee04102c7dab1c224b6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
