@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa5f73f8_18d14580",
+        "filename": "arm-wt-22k/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2016-01-08T18:52:04Z",
+      "side": 1,
+      "message": "It\u0027s already added here.",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 22
+      },
+      "revId": "e848685e7d3dd779e729e46dfcc33f0a37947879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a62afbe_1754b4d6",
+        "filename": "arm-wt-22k/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2016-01-08T18:52:04Z",
+      "side": 1,
+      "message": "No, adding it to LOCAL_SRC_FILES_arm won\u0027t work.\nWe should add $(LOCAL_PATH)/lib_src to LOCAL_C_INCLUDES_arm instead.\nIt\u0027s already listed in LOCAL_C_INCLUDES above, so we can just remove this line.",
+      "range": {
+        "startLine": 83,
+        "startChar": 1,
+        "endLine": 83,
+        "endChar": 36
+      },
+      "revId": "e848685e7d3dd779e729e46dfcc33f0a37947879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
