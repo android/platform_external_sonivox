@@ -28,7 +28,7 @@
 
 
 
-	.include	"ARM_synth_constants_gnu.inc"
+#include	"ARM_synth_constants_gnu.inc"
 
 	.arm
 	.text
@@ -64,7 +64,6 @@ gain	.req	r8
 @SaveRegs	RLIST	{r4-r11,lr}
 @RestoreRegs	RLIST	{r4-r11,pc}
 
-	.func	WT_VoiceGain
 WT_VoiceGain:
 
 	STMFD	sp!, {r4-r11,lr}
@@ -123,7 +122,7 @@ StereoGainLoop:
 
 	SUBS	numSamples, numSamples, #1
 
-	LDRGTSH	tmp0, [pInputBuffer], #2
+	LDRSHGT	tmp0, [pInputBuffer], #2
 	
 	STR		tmp2, [pMixBuffer], #4
 
@@ -161,6 +160,5 @@ MonoGainLoop:
 	LDMFD	sp!,{r4-r11,lr}
 	BX		lr
 	
-	.endfunc
 	.end
 

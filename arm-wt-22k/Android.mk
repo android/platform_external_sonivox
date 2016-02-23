@@ -82,21 +82,13 @@ LOCAL_SRC_FILES_arm += \
 	lib_src/ARM-E_mastergain_gnu.s \
 	lib_src/ARM-E_voice_gain_gnu.s
 
-asm_flags := \
-	-I $(LOCAL_PATH)/lib_src \
-	--defsym SAMPLE_RATE_22050=1 \
-	--defsym STEREO_OUTPUT=1 \
-	--defsym FILTER_ENABLED=1 \
-	--defsym SAMPLES_8_BIT=1
-
 LOCAL_ASFLAGS_arm := \
-	$(foreach f,$(asm_flags),-Wa,"$(f)")
-
-# .s files not ported for Clang assembler yet.
-LOCAL_CLANG_ASFLAGS_arm += -no-integrated-as
-LOCAL_CLANG_ASFLAGS_arm64 += -no-integrated-as
-
-asm_flags :=
+	-x assembler-with-cpp \
+	-I $(LOCAL_PATH)/lib_src \
+	-DSAMPLE_RATE_22050=1 \
+	-DSTEREO_OUTPUT=1 \
+	-DFILTER_ENABLED=1 \
+	-DSAMPLES_8_BIT=1
 
 LOCAL_CFLAGS_arm += -D NATIVE_EAS_KERNEL
 
