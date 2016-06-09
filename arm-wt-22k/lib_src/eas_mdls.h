@@ -79,12 +79,12 @@ typedef struct
 #endif
 
 
-#define ZERO_TIME_IN_CENTS              -32768
+#define ZERO_TIME_IN_CENTS              (-32768)
 
 /* Pan calculation macros */
 #define PAN_CONVERSION_FACTOR       4129
 #define MAX_PAN_VALUE               63
-#define MIN_PAN_VALUE               -63
+#define MIN_PAN_VALUE               (-63)
 
 /* multiplier to convert time cents to 10-bit fraction log for EAS_LogToLinear16 */
 #define TIME_CENTS_TO_LOG2          27962
@@ -97,7 +97,7 @@ typedef struct
 #define SUSTAIN_LINEAR_CONVERSION_FACTOR    1073709
 
 /* conversion factor to convert frame period to decay rate */
-#define DECAY_CONVERSION_FACTOR     -16
+#define DECAY_CONVERSION_FACTOR     (-16)
 
 /*----------------------------------------------------------------------------
  * These macros define the various characteristics of the defined sample rates
@@ -120,7 +120,7 @@ typedef struct
 #define DLS_LFO_FREQUENCY_CONVERT       5108
 
 #elif defined (_SAMPLE_RATE_22050)
-#define DLS_RATE_CONVERT                -8914
+#define DLS_RATE_CONVERT                (-8914)
 #define DLS_LFO_FREQUENCY_CONVERT       5277
 
 #elif defined (_SAMPLE_RATE_24000)
@@ -190,9 +190,9 @@ typedef struct
 #define MAX_LFO_FREQUENCY_IN_HERTZ          20
 #define MIN_LFO_FREQUENCY_IN_HERTZ          0.1
 #define MAX_LFO_FREQUENCY_IN_PITCHCENTS     1549
-#define MIN_LFO_FREQUENCY_IN_PITCHCENTS     -7624
+#define MIN_LFO_FREQUENCY_IN_PITCHCENTS     (-7624)
 #define MAX_LFO_AMPLITUDE_DEPTH             12  /* in dB, DLS2.1 p 31*/
-#define MIN_LFO_AMPLITUDE_DEPTH             -12 /* in dB, DLS2.1 p 31*/
+#define MIN_LFO_AMPLITUDE_DEPTH             (-12) /* in dB, DLS2.1 p 31*/
 
 /* add to pitch cents before pow(2.0, n) to convert to frequency */
 #define ABSOLUTE_PITCH_BIAS                 238395828

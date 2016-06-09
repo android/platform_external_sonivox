@@ -34,7 +34,7 @@
 #include <stdint.h>
 
 /** coefs for pan, generates sin, cos */
-#define COEFF_PAN_G2    -27146      /* -0.82842712474619 = 2 - 4/sqrt(2) */
+#define COEFF_PAN_G2    (-27146)    /* -0.82842712474619 = 2 - 4/sqrt(2) */
 #define COEFF_PAN_G0    23170       /* 0.707106781186547 = 1/sqrt(2) */
 
 /*

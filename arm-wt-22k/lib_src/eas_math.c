@@ -32,7 +32,7 @@
 #include "eas_math.h"
 
 /* anything less than this converts to a fraction too small to represent in 32-bits */
-#define MIN_CENTS   -18000
+#define MIN_CENTS   (-18000)
 
 /*----------------------------------------------------------------------------
  * EAS_Calculate2toX()

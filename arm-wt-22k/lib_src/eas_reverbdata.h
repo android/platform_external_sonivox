@@ -49,7 +49,7 @@ if the buffer size is a power of two.
             (                                               \
                 ((EAS_I32)(base)) + ((EAS_I32)(offset))     \
             )                                               \
-            & size                                          \
+            & (size)                                        \
                                             )
 
 /* reverb parameters are updated every 2^(REVERB_UPDATE_PERIOD_IN_BITS) samples */
@@ -161,7 +161,7 @@ EAS_I32 nPanG1 = -1.0 for cos
 #define DEFAULT_AP0_LENGTH              (int)(((double) (17.0/1000.0))  * ((double) _OUTPUT_SAMPLE_RATE))
 #define DEFAULT_AP0_GAIN                19400
 #define DEFAULT_AP1_LENGTH              (int)(((double) (16.5/1000.0))  * ((double) _OUTPUT_SAMPLE_RATE))
-#define DEFAULT_AP1_GAIN                -19400
+#define DEFAULT_AP1_GAIN                (-19400)
 
 #define REVERB_DEFAULT_WET              32767
 #define REVERB_DEFAULT_DRY              0

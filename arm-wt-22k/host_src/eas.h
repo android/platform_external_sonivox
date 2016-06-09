@@ -43,7 +43,7 @@ extern "C" {
 #endif
 
 /* library version macro */
-#define MAKE_LIB_VERSION(a,b,c,d) (((((((EAS_U32) a <<8) | (EAS_U32) b) << 8) | (EAS_U32) c) << 8) | (EAS_U32) d)
+#define MAKE_LIB_VERSION(a,b,c,d) (((((((EAS_U32) (a) <<8) | (EAS_U32) (b)) << 8) | (EAS_U32) (c)) << 8) | (EAS_U32) (d))
 #define LIB_VERSION MAKE_LIB_VERSION(3, 6, 10, 14)
 
 typedef struct

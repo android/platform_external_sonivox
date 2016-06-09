@@ -171,7 +171,7 @@
 /* filter defines */
 #define DEFAULT_FILTER_ZERO     0
 #define FILTER_CUTOFF_MAX_PITCH_CENTS       1919
-#define FILTER_CUTOFF_MIN_PITCH_CENTS       -4467
+#define FILTER_CUTOFF_MIN_PITCH_CENTS       (-4467)
 #define A5_PITCH_OFFSET_IN_CENTS            6900
 
 /*------------------------------------
