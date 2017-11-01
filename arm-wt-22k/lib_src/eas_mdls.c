@@ -114,6 +114,8 @@
 /* this define allows us to use the sndlib.h structures as RW memory */
 #define SCNST
 
+#include "log/log.h"
+
 #include "eas_data.h"
 #include "eas_host.h"
 #include "eas_mdls.h"
@@ -784,6 +786,11 @@ static EAS_RESULT NextChunk (SDLS_SYNTHESIZER_DATA *pDLSData, EAS_I32 *pPos, EAS
     /* read the chunk size */
     if ((result = EAS_HWGetDWord(pDLSData->hwInstData, pDLSData->fileHandle, pSize, EAS_FALSE)) != EAS_SUCCESS)
         return result;
+
+    if (*pSize < 0) {
+        ALOGE("b/37093318");
+        return EAS_ERROR_FILE_FORMAT;
+    }
 
     /* get form type for RIFF and LIST types */
     if ((*pChunkType == CHUNK_RIFF) || (*pChunkType == CHUNK_LIST))
@@ -2088,8 +2095,11 @@ static EAS_RESULT PushcdlStack (EAS_U32 *pStack, EAS_INT *pStackPtr, EAS_U32 val
 {
 
     /* stack overflow, return an error */
-    if (*pStackPtr >= CDL_STACK_SIZE)
+    if (*pStackPtr >= (CDL_STACK_SIZE - 1)) {
+        ALOGE("b/34031018, stackPtr(%d)", *pStackPtr);
+        android_errorWriteLog(0x534e4554, "34031018");
         return EAS_ERROR_FILE_FORMAT;
+    }
 
     /* push the value onto the stack */
     *pStackPtr = *pStackPtr + 1;

@@ -27,6 +27,8 @@
  *----------------------------------------------------------------------------
 */
 
+#include <log/log.h>
+
 #include "eas_data.h"
 #include "eas_miditypes.h"
 #include "eas_parser.h"
@@ -649,6 +651,11 @@ static EAS_RESULT XMF_ReadNode (EAS_HW_DATA_HANDLE hwInstData, S_XMF_DATA *pXMFD
         for ( ; numItems > 0; numItems--)
         {
             /* process this item */
+            if (offset <= nodeOffset) {
+                ALOGE("b/36725407: parser did not advance");
+                return EAS_ERROR_FILE_FORMAT;
+            }
+
             if ((result = XMF_ReadNode(hwInstData, pXMFData, offset, &length)) != EAS_SUCCESS)
                 return result;
 

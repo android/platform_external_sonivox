@@ -28,6 +28,7 @@
 */
 
 // includes
+#define LOG_TAG "SYNTH"
 #include "log/log.h"
 #include <cutils/log.h>
 
@@ -557,6 +558,14 @@ static EAS_BOOL WT_UpdateVoice (S_VOICE_MGR *pVoiceMgr, S_SYNTH *pSynth, S_SYNTH
     else
         temp += (pVoice->note + pSynth->globalTranspose) * 100;
     intFrame.frame.phaseIncrement = WT_UpdatePhaseInc(pWTVoice, pArt, pChannel, temp);
+    temp = pWTVoice->loopEnd - pWTVoice->loopStart;
+    if (temp != 0) {
+        temp = temp << NUM_PHASE_FRAC_BITS;
+        if (intFrame.frame.phaseIncrement > temp) {
+            ALOGW("%p phaseIncrement=%d", pWTVoice, (int)intFrame.frame.phaseIncrement);
+            intFrame.frame.phaseIncrement %= temp;
+        }
+    }
 
     /* call into engine to generate samples */
     intFrame.pAudioBuffer = pVoiceMgr->voiceBuffer;
