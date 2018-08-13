@@ -27,6 +27,9 @@
  *----------------------------------------------------------------------------
 */
 
+#define LOG_TAG "Sonivox"
+#include "log/log.h"
+
 #include "eas_synthcfg.h"
 #include "eas.h"
 #include "eas_config.h"
@@ -1244,6 +1247,13 @@ static EAS_RESULT EAS_ParseEvents (S_EAS_DATA *pEASData, EAS_HANDLE pStream, EAS
     EAS_BOOL done;
     EAS_INT yieldCount = YIELD_EVENT_COUNT;
     EAS_U32 time = 0;
+    // This constant is the maximum number of events that can be processed in a single time slice.
+    // A typical ringtone will contain a few events per time slice.
+    // Extremely dense ringtones might go up to 50 events.
+    // If we see this many events then the file is probably stuck in an infinite loop
+    // and should be aborted.  In our testing, it took less than 100 msec to hit this limit.
+    static const EAS_INT MAX_EVENT_COUNT = 50000;
+    EAS_INT eventCount = 0;
 
     /* does this parser have a time function? */
     pParserModule = pStream->pParserModule;
@@ -1291,9 +1301,21 @@ static EAS_RESULT EAS_ParseEvents (S_EAS_DATA *pEASData, EAS_HANDLE pStream, EAS
             {
 
                 /* parse the next event */
-                if (pParserModule->pfEvent)
-                    if ((result = (*pParserModule->pfEvent)(pEASData, pStream->handle, parseMode)) != EAS_SUCCESS)
+                if (pParserModule->pfEvent) {
+                    if ((result = (*pParserModule->pfEvent)(pEASData, pStream->handle, parseMode))
+                            != EAS_SUCCESS) {
+                        ALOGE("%s() pfEvent returned %ld", __func__, result);
                         return result;
+                    }
+                }
+                // An infinite loop within a single frame of a ringtone file can cause this function
+                // to loop forever.  Try to detect that and return an error.
+                if (++eventCount >= MAX_EVENT_COUNT) {
+                    ALOGE("%s() aborting, %d events without advancing to next frame",
+                            __func__, eventCount);
+                    android_errorWriteLog(0x534e4554, "68664359");
+                    return EAS_ERROR_FILE_POS;
+                }
             }
 
             /* no more events in this frame, advance time */
