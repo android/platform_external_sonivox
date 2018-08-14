@@ -1,4 +1,4 @@
-cc_library_shared {
+cc_library {
     name: "libsonivox",
     srcs: [
         "lib_src/eas_chorus.c",
