@@ -608,8 +608,14 @@ EAS_RESULT DLSParser (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE fileHandle,
             return EAS_ERROR_FILE_FORMAT;
         }
 
-        /* limit check  */
-        if ((dls.artCount == 0) || (dls.artCount > DLS_MAX_ART_COUNT))
+        /* limit check - warn user if artCount is 0 and use default articulations */
+        if ( dls.artCount ==  0 )
+        {
+            { /* dpp: EAS_ReportEx(_EAS_SEVERITY_WARNING, "DLS file contains 0 #articulations, using default.\n"); */ }
+        }
+
+        /* limit check */
+        if ( dls.artCount > DLS_MAX_ART_COUNT )
         {
             { /* dpp: EAS_ReportEx(_EAS_SEVERITY_ERROR, "DLS file contains invalid #articulations [%u]\n", dls.regionCount); */ }
             EAS_HWFree(dls.hwInstData, dls.wsmpData);
@@ -689,13 +695,14 @@ EAS_RESULT DLSParser (EAS_HW_DATA_HANDLE hwInstData, EAS_FILE_HANDLE fileHandle,
 
         /* parse the wave pool and load samples */
         result = Parse_ptbl(&dls, ptblPos, wvplPos, wvplSize);
+    }else {
+        DLSCleanup(dls.hwInstData, dls.pDLS);
+        return result;
     }
 
     /* create the default articulation */
-    if (dls.pDLS) {
-        Convert_art(&dls, &defaultArt, 0);
-        dls.artCount = 1;
-    }
+    Convert_art(&dls, &defaultArt, 0);
+    dls.artCount = 1;
 
     /* parse the lins chunk and load instruments */
     dls.regionCount = dls.instCount = 0;
@@ -811,8 +818,9 @@ static EAS_RESULT NextChunk (SDLS_SYNTHESIZER_DATA *pDLSData, EAS_I32 *pPos, EAS
     *pPos += *pSize + 8;
 
     /* adjust to word boundary */
-    if (*pPos & 1)
-        (*pPos)++;
+    //fix to play XMF format
+    //if (*pPos & 1)
+    //    (*pPos)++;
 
     return EAS_SUCCESS;
 }
@@ -1305,6 +1313,11 @@ static EAS_RESULT Parse_data (SDLS_SYNTHESIZER_DATA *pDLSData, EAS_I32 pos, EAS_
     /* for looped samples, copy the last sample to the end */
     if (pWsmp->loopLength)
     {
+    // To prevent sonivox crash
+        if( (pDLSData->wavePoolOffset + pWsmp->loopLength) >= pDLSData->wavePoolSize )
+        {
+            return EAS_SUCCESS;
+        }
         if (sampleLen < sizeof(EAS_SAMPLE)
             || (pWsmp->loopStart + pWsmp->loopLength) * sizeof(EAS_SAMPLE) > sampleLen - sizeof(EAS_SAMPLE))
         {
@@ -2389,6 +2402,10 @@ static void Convert_rgn (SDLS_SYNTHESIZER_DATA *pDLSData, EAS_U16 regionIndex, E
 static void Convert_art (SDLS_SYNTHESIZER_DATA *pDLSData, const S_DLS_ART_VALUES *pDLSArt,  EAS_U16 artIndex)
 {
     S_DLS_ARTICULATION *pArt;
+
+    if(pDLSData->pDLS == NULL) {
+        return;
+    }
 
     /* setup pointers to data structures */
     pArt = &pDLSData->pDLS->pDLSArticulations[artIndex];

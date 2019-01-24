@@ -558,7 +558,11 @@ static EAS_BOOL WT_UpdateVoice (S_VOICE_MGR *pVoiceMgr, S_SYNTH *pSynth, S_SYNTH
     else
         temp += (pVoice->note + pSynth->globalTranspose) * 100;
     intFrame.frame.phaseIncrement = WT_UpdatePhaseInc(pWTVoice, pArt, pChannel, temp);
+#ifdef _8_BIT_SAMPLES
     temp = pWTVoice->loopEnd - pWTVoice->loopStart;
+#else //_16_BIT_SAMPLES
+    temp = (pWTVoice->loopEnd - pWTVoice->loopStart)>>1;
+#endif
     if (temp != 0) {
         temp = temp << NUM_PHASE_FRAC_BITS;
         if (intFrame.frame.phaseIncrement > temp) {

@@ -1233,6 +1233,13 @@ static void SMF_UpdateTime (S_SMF_DATA *pSMFData, EAS_U32 ticks)
 
     temp1 = (ticks >> 10) * pSMFData->tickConv;
     temp2 = (ticks & 0x3ff) * pSMFData->tickConv;
-    pSMFData->time += (EAS_I32)((temp1 << 8) + (temp2 >> 2));
+    //fix to play XMF format
+    //pSMFData->time += (EAS_I32)((temp1 << 8) + (temp2 >> 2));
+    if (temp2 > 0) {
+            pSMFData->time += (EAS_I32)(temp2 >> 2);
+    }
+    if (temp1 < 100000) {
+            pSMFData->time += (EAS_I32)(temp1 << 8);
+    }
 }
 
