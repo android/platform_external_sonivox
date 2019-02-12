@@ -57,7 +57,7 @@ cc_library {
         "-DNUM_OUTPUT_CHANNELS=2",
         "-D_SAMPLE_RATE_22050",
         "-DMAX_SYNTH_VOICES=64",
-        "-D_8_BIT_SAMPLES",
+        "-D_16_BIT_SAMPLES",
         "-D_FILTER_ENABLED",
         "-DDLS_SYNTHESIZER",
         "-D_REVERB_ENABLED",
@@ -87,10 +87,10 @@ cc_library {
 
             srcs: [
                 "lib_src/ARM-E_filter_gnu.s",
-                "lib_src/ARM-E_interpolate_loop_gnu.s",
-                "lib_src/ARM-E_interpolate_noloop_gnu.s",
+                //"lib_src/ARM-E_interpolate_loop_gnu.s",
+                //"lib_src/ARM-E_interpolate_noloop_gnu.s",
                 "lib_src/ARM-E_mastergain_gnu.s",
-                "lib_src/ARM-E_voice_gain_gnu.s",
+                //"lib_src/ARM-E_voice_gain_gnu.s",
             ],
 
             asflags: [
@@ -100,7 +100,7 @@ cc_library {
                 "-Wa,--defsym,SAMPLE_RATE_22050=1",
                 "-Wa,--defsym,STEREO_OUTPUT=1",
                 "-Wa,--defsym,FILTER_ENABLED=1",
-                "-Wa,--defsym,SAMPLES_8_BIT=1",
+                "-Wa,--defsym,SAMPLES_16_BIT=1",
             ],
 
             cflags: [
