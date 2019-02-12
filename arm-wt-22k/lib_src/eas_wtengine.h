@@ -160,7 +160,11 @@ typedef struct s_wt_voice_tag
  * prototypes
  *----------------------------------------------------------------------------
 */
+#ifdef _8_BIT_SAMPLES
 EAS_BOOL WT_CheckSampleEnd (S_WT_VOICE *pWTVoice, S_WT_INT_FRAME *pWTIntFrame, EAS_BOOL update);
+#else //_16_BIT_SAMPLES
+EAS_BOOL WT_CheckDLSSampleEnd (S_WT_VOICE *pWTVoice, S_WT_INT_FRAME *pWTIntFrame, EAS_BOOL update);
+#endif
 void WT_ProcessVoice (S_WT_VOICE *pWTVoice, S_WT_INT_FRAME *pWTIntFrame);
 
 #ifdef EAS_SPLIT_WT_SYNTH
