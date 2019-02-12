@@ -424,9 +424,13 @@ EAS_BOOL DLS_UpdateVoice (S_VOICE_MGR *pVoiceMgr, S_SYNTH *pSynth, S_SYNTH_VOICE
         return EAS_FALSE;
 
     /* check for end of sample */
-    if ((pWTVoice->loopStart != WT_NOISE_GENERATOR) && (pWTVoice->loopStart == pWTVoice->loopEnd))
+    if ((pWTVoice->loopStart != WT_NOISE_GENERATOR) && (pWTVoice->loopStart == pWTVoice->loopEnd)) {
+#if defined(_8_BIT_SAMPLES)
         done = WT_CheckSampleEnd(pWTVoice, &intFrame, EAS_FALSE);
-
+#else //_16_BIT_SAMPLES
+        done = WT_CheckDLSSampleEnd(pWTVoice, &intFrame, EAS_FALSE);
+#endif
+    }
     WT_ProcessVoice(pWTVoice, &intFrame);
 
     /* clear flag */

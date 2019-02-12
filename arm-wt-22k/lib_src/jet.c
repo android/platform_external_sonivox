@@ -564,6 +564,9 @@ EAS_PUBLIC EAS_RESULT JET_Status (EAS_DATA_HANDLE easHandle, S_JET_STATUS *pStat
                 pStatus->location = location;
             }
     }
+    if((pSeg->state == JET_STATE_STOPPING) || (pSeg->state == JET_STATE_CLOSED)) {
+        return EAS_FAILURE;
+    }
     return EAS_SUCCESS;
 }
 
