@@ -405,11 +405,21 @@ static EAS_RESULT WT_StartVoice (S_VOICE_MGR *pVoiceMgr, S_SYNTH *pSynth, S_SYNT
 
         if (pRegion->region.keyGroupAndFlags & REGION_FLAG_IS_LOOPED)
         {
+#if defined (_8_BIT_SAMPLES)
             pWTVoice->loopStart = pWTVoice->phaseAccum + pRegion->loopStart;
             pWTVoice->loopEnd = pWTVoice->phaseAccum + pRegion->loopEnd - 1;
+#else //_16_BIT_SAMPLES
+            pWTVoice->loopStart = pWTVoice->phaseAccum + (pRegion->loopStart<<1);
+            pWTVoice->loopEnd = pWTVoice->phaseAccum + (pRegion->loopEnd<<1) - 2;
+#endif
         }
-        else
+        else {
+#ifdef _8_BIT_SAMPLES
             pWTVoice->loopStart = pWTVoice->loopEnd = pWTVoice->phaseAccum + pSynth->pEAS->pSampleLen[pRegion->waveIndex] - 1;
+#else //_16_BIT_SAMPLES
+            pWTVoice->loopStart = pWTVoice->loopEnd = pWTVoice->phaseAccum + pSynth->pEAS->pSampleLen[pRegion->waveIndex] - 2;
+#endif
+        }
     }
 
 #ifdef EAS_SPLIT_WT_SYNTH
@@ -447,6 +457,7 @@ static EAS_RESULT WT_StartVoice (S_VOICE_MGR *pVoiceMgr, S_SYNTH *pSynth, S_SYNT
  *
  *----------------------------------------------------------------------------
 */
+#if defined(_8_BIT_SAMPLES)
 EAS_BOOL WT_CheckSampleEnd (S_WT_VOICE *pWTVoice, S_WT_INT_FRAME *pWTIntFrame, EAS_BOOL update)
 {
     EAS_U32 endPhaseAccum;
@@ -490,6 +501,58 @@ EAS_BOOL WT_CheckSampleEnd (S_WT_VOICE *pWTVoice, S_WT_INT_FRAME *pWTIntFrame, E
 
     return done;
 }
+#elif defined(_16_BIT_SAMPLES)
+EAS_BOOL WT_CheckDLSSampleEnd (S_WT_VOICE *pWTVoice, S_WT_INT_FRAME *pWTIntFrame, EAS_BOOL update)
+{
+    EAS_U32 endPhaseAccum;
+    EAS_U32 endPhaseFrac;
+    EAS_I32 numSamples;
+    EAS_BOOL done = EAS_FALSE;
+
+    /* check to see if we hit the end of the waveform this time */
+    /*lint -e{703} use shift for performance */
+    endPhaseFrac = pWTVoice->phaseFrac + (pWTIntFrame->frame.phaseIncrement << SYNTH_UPDATE_PERIOD_IN_BITS);
+    endPhaseAccum = pWTVoice->phaseAccum + (EAS_U32)(endPhaseFrac>>14);    // Multiply by 2 for 16 bit processing module implementation
+
+    if(endPhaseAccum >= pWTVoice->loopEnd)
+    {
+        /* calculate how far current ptr is from end */
+        numSamples = (EAS_I32) (pWTVoice->loopEnd - pWTVoice->phaseAccum);
+
+        numSamples >>= 1;        // Divide by 2 for 16 bit processing module implementation
+        /* now account for the fractional portion */
+        /*lint -e{703} use shift for performance */
+        numSamples = (EAS_I32) ((numSamples << NUM_PHASE_FRAC_BITS) - pWTVoice->phaseFrac);
+        if (pWTIntFrame->frame.phaseIncrement) {
+            pWTIntFrame->numSamples = 1 + (numSamples / pWTIntFrame->frame.phaseIncrement);
+        }
+        else
+        {
+            pWTIntFrame->numSamples = numSamples;
+        }
+
+        if(pWTIntFrame->numSamples < 0) {
+            ALOGE("b/26366256");
+            android_errorWriteLog(0x534e4554, "26366256");
+            pWTIntFrame->numSamples = 0;
+        }
+
+        /* sound will be done this frame */
+        done = EAS_TRUE;
+    }
+
+    /* update data for off-chip synth */
+    if (update)
+    {
+        pWTVoice->phaseFrac = endPhaseFrac;
+        pWTVoice->phaseAccum = endPhaseAccum;
+    }
+
+    return done;
+}
+#else
+#error "Must specifiy _8_BIT_SAMPLES or _16_BIT_SAMPLES"
+#endif
 
 /*----------------------------------------------------------------------------
  * WT_UpdateVoice()
@@ -558,7 +621,9 @@ static EAS_BOOL WT_UpdateVoice (S_VOICE_MGR *pVoiceMgr, S_SYNTH *pSynth, S_SYNTH
     else
         temp += (pVoice->note + pSynth->globalTranspose) * 100;
     intFrame.frame.phaseIncrement = WT_UpdatePhaseInc(pWTVoice, pArt, pChannel, temp);
+
     temp = pWTVoice->loopEnd - pWTVoice->loopStart;
+
     if (temp != 0) {
         temp = temp << NUM_PHASE_FRAC_BITS;
         if (intFrame.frame.phaseIncrement > temp) {
@@ -573,9 +638,14 @@ static EAS_BOOL WT_UpdateVoice (S_VOICE_MGR *pVoiceMgr, S_SYNTH *pSynth, S_SYNTH
     intFrame.numSamples = numSamples;
 
     /* check for end of sample */
-    if ((pWTVoice->loopStart != WT_NOISE_GENERATOR) && (pWTVoice->loopStart == pWTVoice->loopEnd))
+    if ((pWTVoice->loopStart != WT_NOISE_GENERATOR) && (pWTVoice->loopStart == pWTVoice->loopEnd)) {
+#ifdef _8_BIT_SAMPLES
         done = WT_CheckSampleEnd(pWTVoice, &intFrame, (EAS_BOOL) (voiceNum >= NUM_PRIMARY_VOICES));
-    else
+#else //_16_BIT_SAMPLES
+        done = WT_CheckDLSSampleEnd(pWTVoice, &intFrame, (EAS_BOOL) (voiceNum >= NUM_PRIMARY_VOICES));
+#endif
+
+    } else
         done = EAS_FALSE;
 
     if (intFrame.numSamples < 0) intFrame.numSamples = 0;
