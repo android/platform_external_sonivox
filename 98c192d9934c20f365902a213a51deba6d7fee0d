@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec151786_176967f4",
+        "filename": "arm-wt-22k/lib_src/eas_mdls.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1353,
+      "author": {
+        "id": 1060750
+      },
+      "writtenOn": "2019-03-07T19:08:38Z",
+      "side": 1,
+      "message": "No need to write XORed data back to array. Just do ((convBuf[i]^0x80)\u003c\u003c8).",
+      "range": {
+        "startLine": 1353,
+        "startChar": 20,
+        "endLine": 1353,
+        "endChar": 30
+      },
+      "revId": "98c192d9934c20f365902a213a51deba6d7fee0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4d7311a_4fbf5a39",
+        "filename": "arm-wt-22k/lib_src/eas_wtengine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1060750
+      },
+      "writtenOn": "2019-03-07T19:08:38Z",
+      "side": 1,
+      "message": "Why is this \"DLS\" and the 8 bit is not?",
+      "range": {
+        "startLine": 166,
+        "startChar": 9,
+        "endLine": 166,
+        "endChar": 29
+      },
+      "revId": "98c192d9934c20f365902a213a51deba6d7fee0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "968004ea_81c97849",
+        "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1060750
+      },
+      "writtenOn": "2019-03-07T19:08:38Z",
+      "side": 1,
+      "message": "This seems to be the only difference between the two functions. Can we reduce duplicate code and just make that one line conditional?",
+      "revId": "98c192d9934c20f365902a213a51deba6d7fee0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b399e6c4_17f3d7d9",
+        "filename": "arm-wt-22k/lib_src/jet.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1060750
+      },
+      "writtenOn": "2019-03-07T19:08:38Z",
+      "side": 1,
+      "message": "Is this related to the 16 bit resolution? Or does it fix a different problem? If so then please file a separate bug and CL.",
+      "range": {
+        "startLine": 567,
+        "startChar": 23,
+        "endLine": 567,
+        "endChar": 41
+      },
+      "revId": "98c192d9934c20f365902a213a51deba6d7fee0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
