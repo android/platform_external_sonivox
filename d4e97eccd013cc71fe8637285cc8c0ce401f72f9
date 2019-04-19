@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e20bf988_ba15c7a4",
+        "filename": "arm-wt-22k/lib_src/eas_mdls.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1001525
+      },
+      "writtenOn": "2019-04-19T17:46:47Z",
+      "side": 1,
+      "message": "can you explain this in more detail? Before, having a count of 0 was an error. Now it\u0027s just quietly ignored.",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 9
+      },
+      "revId": "d4e97eccd013cc71fe8637285cc8c0ce401f72f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64a5bf2c_aba3e561",
+        "filename": "arm-wt-22k/lib_src/eas_mdls.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1001525
+      },
+      "writtenOn": "2019-04-19T17:46:47Z",
+      "side": 1,
+      "message": "this doesn\u0027t seem right, as there may be more things to free (see the call to EAS_HWFree below). Shouldn\u0027t this fall through, like it did before, so the cleanup below runs?",
+      "range": {
+        "startLine": 698,
+        "startChar": 0,
+        "endLine": 701,
+        "endChar": 5
+      },
+      "revId": "d4e97eccd013cc71fe8637285cc8c0ce401f72f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
