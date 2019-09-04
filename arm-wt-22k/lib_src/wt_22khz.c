@@ -14697,7 +14697,8 @@ const EAS_U32 eas_sampleOffsets[] =
     0x00033c53, 0x00033c69, 0x00033c7e, 0x00033c93, 0x00033ca8, 0x00033cbd
 };
 #else //_16_BIT_SAMPLES
-const EAS_SAMPLE eas_samples[] =
+/* NOTE: this array should have size of at least eas_sampleOffsets[last_element] + eas_sampleLengths[last_element] */
+const EAS_SAMPLE eas_samples[0x00033cbd + 20] =
 {
     0, 0, -768, -1024, -1536, -2048, -2560, -3072, -3072, -2816, -2048, -768, 768, 1792, 2560, 3584,
     4096, 4096, 3840, 3072, 2304, 1024, -1024, -3072, -4608, -5376, -5376, -4864, -4608, -3840, -2560, -768,
