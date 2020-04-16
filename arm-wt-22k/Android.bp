@@ -115,4 +115,5 @@ cc_library {
             clang_asflags: ["-no-integrated-as"],
         },
     },
+    min_sdk_version: "29",
 }
