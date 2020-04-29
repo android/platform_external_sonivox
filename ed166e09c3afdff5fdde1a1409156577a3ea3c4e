@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6af71cd6_18bac432",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-29T20:43:56Z",
+      "side": 1,
+      "message": "create and use a local variable playTimeMs\nAs this is tested to be equal to mAudioplayTimeMs on line 95, use that everywhere else.",
+      "range": {
+        "startLine": 92,
+        "startChar": 70,
+        "endLine": 92,
+        "endChar": 81
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7709367_68c56d7a",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-29T20:43:56Z",
+      "side": 1,
+      "message": "this needn\u0027t be member of the class.\nUse mAudioplayTimeMs everywhere",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 24
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10c52504_061d204f",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-29T20:43:56Z",
+      "side": 1,
+      "message": "let us rename this to seekToLocation as the functions are named EAS_Locate and GetLocation",
+      "range": {
+        "startLine": 155,
+        "startChar": 18,
+        "endLine": 155,
+        "endChar": 32
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e6a8e72_b7ef57ce",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-29T20:43:56Z",
+      "side": 1,
+      "message": "what is the typical size of this buffer?\nIf it isn\u0027t too large, we can make this an array on stack.",
+      "range": {
+        "startLine": 171,
+        "startChar": 29,
+        "endLine": 171,
+        "endChar": 39
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c75a7bc_76bacd7f",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-29T20:43:56Z",
+      "side": 1,
+      "message": "not needed here as SetUp already has called ParseMetaData",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 66
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00fe9243_ded341be",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-29T20:43:56Z",
+      "side": 1,
+      "message": "move this to SetUp as well",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 78
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fcd93bc_153c3659",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-29T20:43:56Z",
+      "side": 1,
+      "message": "what is the size of this buffer.\nIf it is too big, then it may be better to allocate on heap with a \"new\"\nIf allocating on heap, then make the variable a member of the class so that it can be freed in destrctor",
+      "range": {
+        "startLine": 236,
+        "startChar": 23,
+        "endLine": 236,
+        "endChar": 33
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fac3f6ee_848524a9",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-29T20:43:56Z",
+      "side": 1,
+      "message": "add more test vectors\nRefer to cts tests/tests/media/res/raw/ in r-fs-release",
+      "range": {
+        "startLine": 340,
+        "startChar": 43,
+        "endLine": 340,
+        "endChar": 84
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
