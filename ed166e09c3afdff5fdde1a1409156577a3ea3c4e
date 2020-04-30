@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7e674bb5_25b9df21",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-04-30T18:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6af71cd6_18bac432",
+      "range": {
+        "startLine": 92,
+        "startChar": 70,
+        "endLine": 92,
+        "endChar": 81
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7709367_68c56d7a",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3415f3f_173a981f",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-04-30T18:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7709367_68c56d7a",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 24
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "103dbf30_d3657b87",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-04-30T18:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10c52504_061d204f",
+      "range": {
+        "startLine": 155,
+        "startChar": 18,
+        "endLine": 155,
+        "endChar": 32
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e6a8e72_b7ef57ce",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-04-29T20:43:56Z",
       "side": 1,
       "message": "what is the typical size of this buffer?\nIf it isn\u0027t too large, we can make this an array on stack.",
+      "range": {
+        "startLine": 171,
+        "startChar": 29,
+        "endLine": 171,
+        "endChar": 39
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ae24714_cfa0352e",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-04-30T18:19:12Z",
+      "side": 1,
+      "message": "It\u0027s 128 bytes for out test vectors, hence keeping as heap only.",
+      "parentUuid": "3e6a8e72_b7ef57ce",
       "range": {
         "startLine": 171,
         "startChar": 29,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4e2d3666_913d5ded",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-04-30T18:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c75a7bc_76bacd7f",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 66
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00fe9243_ded341be",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b71154d6_3e70ca9c",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-04-30T18:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00fe9243_ded341be",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 78
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "1b3196c2_27e3393a",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-04-30T18:19:12Z",
+      "side": 1,
+      "message": "EAS_I32 bufferSize \u003d sizeof(EAS_PCM) * easConfig-\u003emixBufferSize * easConfig-\u003enumChannels *\n                         kNumBuffersToCombine;\n\nThe mixBufferSize for all the clips is 128-bytes, now if the number of channels is high, the size would become big and hence heap would be a safer choice.",
+      "parentUuid": "6fcd93bc_153c3659",
+      "range": {
+        "startLine": 236,
+        "startChar": 23,
+        "endLine": 236,
+        "endChar": 33
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fac3f6ee_848524a9",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2020-04-29T20:43:56Z",
       "side": 1,
       "message": "add more test vectors\nRefer to cts tests/tests/media/res/raw/ in r-fs-release",
+      "range": {
+        "startLine": 340,
+        "startChar": 43,
+        "endLine": 340,
+        "endChar": 84
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0fa258f_bf61c01d",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-04-30T18:19:12Z",
+      "side": 1,
+      "message": "Already using cts test vectors. They\u0027re similar with different notes only. Using 4 out of the 6 test vectors.",
+      "parentUuid": "fac3f6ee_848524a9",
       "range": {
         "startLine": 340,
         "startChar": 43,
