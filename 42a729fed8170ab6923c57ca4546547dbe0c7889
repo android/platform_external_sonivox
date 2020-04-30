@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2401f138_a9f10d28",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-30T18:37:52Z",
+      "side": 1,
+      "message": "if this also can be moved to SetUp() and make S_EAS_LIB_CONFIG *mEasConfig part of the class,\nyou can move the allocation of mPCMBuffer as well to SetUp()",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 71
+      },
+      "revId": "42a729fed8170ab6923c57ca4546547dbe0c7889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53beb365_4a4802c8",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-30T18:37:52Z",
+      "side": 1,
+      "message": "let us use mPCMBuffer that is a member.\nrenderAudio() after the suggested update will not use mPCMBuffer.",
+      "range": {
+        "startLine": 237,
+        "startChar": 8,
+        "endLine": 237,
+        "endChar": 17
+      },
+      "revId": "42a729fed8170ab6923c57ca4546547dbe0c7889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

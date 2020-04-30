@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "c3536199_81e31799",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-30T18:37:52Z",
+      "side": 1,
+      "message": "128 bytes is low\n\nLet us define this on stack as a local variable and rename this as EAS_PCM buffer[bufferSize];",
+      "parentUuid": "2ae24714_cfa0352e",
+      "range": {
+        "startLine": 171,
+        "startChar": 29,
+        "endLine": 171,
+        "endChar": 39
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c75a7bc_76bacd7f",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 1
@@ -366,6 +390,30 @@
       "side": 1,
       "message": "Already using cts test vectors. They\u0027re similar with different notes only. Using 4 out of the 6 test vectors.",
       "parentUuid": "fac3f6ee_848524a9",
+      "range": {
+        "startLine": 340,
+        "startChar": 43,
+        "endLine": 340,
+        "endChar": 84
+      },
+      "revId": "ed166e09c3afdff5fdde1a1409156577a3ea3c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a972b4b3_58a221e7",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-04-30T18:37:52Z",
+      "side": 1,
+      "message": "recent additions in cts cover more paths.\nCheck latest r-fs-release and look for *.mxmf also see Vectors folder in sonivox",
+      "parentUuid": "c0fa258f_bf61c01d",
       "range": {
         "startLine": 340,
         "startChar": 43,
