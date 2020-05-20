@@ -81,6 +81,14 @@ cc_library {
         "liblog",
     ],
 
+    host_supported: true,
+
+    target: {
+        darwin: {
+            enabled: false,
+        },
+    },
+
     arch: {
         arm: {
             instruction_set: "arm",
