@@ -115,4 +115,10 @@ cc_library {
             clang_asflags: ["-no-integrated-as"],
         },
     },
+
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.media",
+    ],
+    min_sdk_version: "29",
 }
