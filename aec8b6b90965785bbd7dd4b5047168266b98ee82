@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d52ec2a6_b68a664f",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "needs to be initialized in the constructor,",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 26
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e1bc7f_2e0abb0a",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "do this with an fstat() or a stat() on the filename.\n\ndon\u0027t want to leave the file descriptor offset at the end of the file.",
+      "range": {
+        "startLine": 74,
+        "startChar": 8,
+        "endLine": 74,
+        "endChar": 42
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86632f71_4d8566ba",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "this returns a value; we need to check it.\n\nthe fact that it resets the parser to the beginning of the file..... that interacts with my comment about the stat/fstat above.\nif our intent is to test that it does re-seek to the beginning of the file, we need to make a stronger statement (e.g. comments) about doing the seek to the end of the file above.\n\nbut we need to check the return value of the GetLocation() call no matter what.",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 102,
+        "endChar": 24
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04c896f8_cb26e983",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "as written, we don\u0027t know if it\u0027s 0 because the call filled in what we wanted or\nif the routine failed, did not set the value at all, and we got lucky about what\nwas in the stack frame.\n\n\nlocationMs \u003d (-1) as an initialization/declaration so that we know just what happened.",
+      "range": {
+        "startLine": 103,
+        "startChar": 27,
+        "endLine": 103,
+        "endChar": 34
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9447dee_7ec94360",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "should we ASSERT_GT(0, mixBufferSize) and also numChannels?  I think perhaps so.",
+      "range": {
+        "startLine": 108,
+        "startChar": 43,
+        "endLine": 108,
+        "endChar": 94
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "006d1532_7d22ea97",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "are there additional values that we should be checking?\nfeels like so -- there\u0027s a list of them in eas_reverb.h",
+      "range": {
+        "startLine": 214,
+        "startChar": 41,
+        "endLine": 214,
+        "endChar": 65
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc8d7c45_69a923a1",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "seems like we should test both false and true here...",
+      "range": {
+        "startLine": 219,
+        "startChar": 89,
+        "endLine": 219,
+        "endChar": 99
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9810838_1e817506",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "i like \"wrote N of M bytes to FILE\"; gives a better first step towards what went wrong.",
+      "range": {
+        "startLine": 261,
+        "startChar": 55,
+        "endLine": 261,
+        "endChar": 74
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0736843c_497ecb99",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "poorly named constant.\n\nlooks like our goal here is \"seek beyond the end\". which isn\u0027t random.",
+      "range": {
+        "startLine": 276,
+        "startChar": 47,
+        "endLine": 276,
+        "endChar": 66
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceecb807_303c4de2",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "if we\u0027re pausing on line 288, then it would seem that we\u0027re not paused at this point.\nseems the diagnostic is likely bad.\n\nif we are supposed to be paused when we come back from EAS_Locate() so that this is a correct diagnostic -- then we should test the state after the EAS_Locate() to ensure that we are paused.",
+      "range": {
+        "startLine": 286,
+        "startChar": 27,
+        "endLine": 286,
+        "endChar": 28
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ed095f5_9b0d506c",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "do we need to usleep() here waiting on the state transition, as we do on line 292?",
+      "range": {
+        "startLine": 301,
+        "startChar": 6,
+        "endLine": 301,
+        "endChar": 9
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdf6b75b_6c041653",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "we resumed. so i\u0027d expect to have played something. which means we would have moved\noff the original timestamp (audioplaytimeMs/2). \nso I guestion the correctness of this test.\n\nASSERT_GE() perhaps, but i don\u0027t think ASSERT_EQ() is right.",
+      "range": {
+        "startLine": 310,
+        "startChar": 4,
+        "endLine": 310,
+        "endChar": 50
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ede42230_1db5a69b",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-05-28T01:00:18Z",
+      "side": 1,
+      "message": "this and the test on line 285/286 seem contradictory.\nare we supposed to be able to render audio no matter the paused/resumed state?\nI would have thought we\u0027d get different results in the different states.",
+      "range": {
+        "startLine": 313,
+        "startChar": 23,
+        "endLine": 313,
+        "endChar": 61
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
