@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "542d7049_cfbfc7e5",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d52ec2a6_b68a664f",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 26
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7e1bc7f_2e0abb0a",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dac6f67b_319a8382",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7e1bc7f_2e0abb0a",
+      "range": {
+        "startLine": 74,
+        "startChar": 8,
+        "endLine": 74,
+        "endChar": 42
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3e34e32b_f6613a83",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86632f71_4d8566ba",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 102,
+        "endChar": 24
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04c896f8_cb26e983",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1432ec1_b231d4f3",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04c896f8_cb26e983",
+      "range": {
+        "startLine": 103,
+        "startChar": 27,
+        "endLine": 103,
+        "endChar": 34
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3af5b96c_3ca490c4",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9447dee_7ec94360",
+      "range": {
+        "startLine": 108,
+        "startChar": 43,
+        "endLine": 108,
+        "endChar": 94
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "006d1532_7d22ea97",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2020-05-28T01:00:18Z",
       "side": 1,
       "message": "are there additional values that we should be checking?\nfeels like so -- there\u0027s a list of them in eas_reverb.h",
+      "range": {
+        "startLine": 214,
+        "startChar": 41,
+        "endLine": 214,
+        "endChar": 65
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ca6a7b3_4234de4e",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "The following parameter was set so the the extracted output matches ExtractorUnit test for Midi\u0027s output. To be added as //TODO later for checking the output variations.",
+      "parentUuid": "006d1532_7d22ea97",
       "range": {
         "startLine": 214,
         "startChar": 41,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "8e75d857_33326e13",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "The following parameter was set so the the extracted output matches ExtractorUnit test for Midi\u0027s output. To be added as //TODO later for checking the output variations.",
+      "parentUuid": "bc8d7c45_69a923a1",
+      "range": {
+        "startLine": 219,
+        "startChar": 89,
+        "endLine": 219,
+        "endChar": 99
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9810838_1e817506",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 3
@@ -183,6 +351,30 @@
       "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb2e4ffc_72f37bff",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9810838_1e817506",
+      "range": {
+        "startLine": 261,
+        "startChar": 55,
+        "endLine": 261,
+        "endChar": 74
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "7d25f02f_d76b762d",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0736843c_497ecb99",
+      "range": {
+        "startLine": 276,
+        "startChar": 47,
+        "endLine": 276,
+        "endChar": 66
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceecb807_303c4de2",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 3
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "17742730_ccc825c3",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceecb807_303c4de2",
+      "range": {
+        "startLine": 286,
+        "startChar": 27,
+        "endLine": 286,
+        "endChar": 28
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ed095f5_9b0d506c",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 3
@@ -243,6 +483,30 @@
       "writtenOn": "2020-05-28T01:00:18Z",
       "side": 1,
       "message": "do we need to usleep() here waiting on the state transition, as we do on line 292?",
+      "range": {
+        "startLine": 301,
+        "startChar": 6,
+        "endLine": 301,
+        "endChar": 9
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b3082ee_09345301",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Removing the usleep and replacing by audio rendering.",
+      "parentUuid": "9ed095f5_9b0d506c",
       "range": {
         "startLine": 301,
         "startChar": 6,
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "4161c54f_36095c43",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdf6b75b_6c041653",
+      "range": {
+        "startLine": 310,
+        "startChar": 4,
+        "endLine": 310,
+        "endChar": 50
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ede42230_1db5a69b",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 3
@@ -298,6 +586,30 @@
       "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d158f59_ba24e85d",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-05T12:21:40Z",
+      "side": 1,
+      "message": "Ray, only older audio would be rendered after pause, hence the position will not change. After resume new audio will be rendered and position will change. I have added checks for both conditions now.",
+      "parentUuid": "ede42230_1db5a69b",
+      "range": {
+        "startLine": 313,
+        "startChar": 23,
+        "endLine": 313,
+        "endChar": 61
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
