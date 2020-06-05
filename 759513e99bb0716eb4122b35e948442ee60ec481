@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eebdff9d_af03b750",
+        "filename": "test/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-06-05T16:11:32Z",
+      "side": 1,
+      "message": "i thought I saw something from Harish in the last week about tagging the on-device directories with the version too.\nI think this was when someone\u0027s test was failing because the wrong data was on the device; and the installation process said \"directory is there, so we should be able to skip the download\".\n\ni don\u0027t recall just what the end point was for that discussion. but let\u0027s check that before we merge this.",
+      "range": {
+        "startLine": 28,
+        "startChar": 46,
+        "endLine": 28,
+        "endChar": 61
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f5688c4_9bff03ff",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-06-05T16:11:32Z",
+      "side": 1,
+      "message": "won\u0027t this throw an exception instead of returning null?\n\nthat will still cause the test to fail, which we do want\nbut it does it in a different manner that we might expect.",
+      "range": {
+        "startLine": 128,
+        "startChar": 22,
+        "endLine": 128,
+        "endChar": 46
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94a2077c_9d0ee7a7",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-06-05T16:11:32Z",
+      "side": 1,
+      "message": "this part isn\u0027t really needed.\nit probably makes this a little more confusing.",
+      "range": {
+        "startLine": 214,
+        "startChar": 7,
+        "endLine": 214,
+        "endChar": 20
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9add7b6e_7b51c616",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-06-05T16:11:32Z",
+      "side": 1,
+      "message": "this one tests for the proper movement if we\u0027re in the middle of the file.\n\nWhat are the proper semantics if our seek point is at the end of the file\nand we run through these pause/resume steps.\nand should we be testing that?",
+      "range": {
+        "startLine": 301,
+        "startChar": 20,
+        "endLine": 301,
+        "endChar": 41
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e54a01cc_b6ec9ab3",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-06-05T16:11:32Z",
+      "side": 1,
+      "message": "per my comment on the renderAudio() at line 332 [the comment is back in patchset 3].\n\nthe assertion we\u0027re making here is that renderAudio() in a paused state will not\nmove the current position at all.\n\ni think the comment on line 312 is a bit misleading...\nseems  \"should not move audio position, since we\u0027re paused\" would be better.",
+      "range": {
+        "startLine": 313,
+        "startChar": 12,
+        "endLine": 314,
+        "endChar": 41
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4b2a663_4f4afb98",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-06-05T16:11:32Z",
+      "side": 1,
+      "message": "i\u0027d have made a local with this value and then used the local here and on line 303\nto make it more obvious what we\u0027re comparing for.\nand if we ever decided we wanted to be looking at a different point in the stream,\nthere is only 1 point that we have to change.",
+      "range": {
+        "startLine": 321,
+        "startChar": 28,
+        "endLine": 321,
+        "endChar": 48
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
