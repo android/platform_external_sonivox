@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2e1735a_123d8387",
+        "filename": "test/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-08T17:20:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eebdff9d_af03b750",
+      "range": {
+        "startLine": 28,
+        "startChar": 46,
+        "endLine": 28,
+        "endChar": 61
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f5688c4_9bff03ff",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 5
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "037bc8c3_89463c59",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-08T17:20:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94a2077c_9d0ee7a7",
+      "range": {
+        "startLine": 214,
+        "startChar": 7,
+        "endLine": 214,
+        "endChar": 20
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9add7b6e_7b51c616",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 5
@@ -82,6 +130,30 @@
       "writtenOn": "2020-06-05T16:11:32Z",
       "side": 1,
       "message": "this one tests for the proper movement if we\u0027re in the middle of the file.\n\nWhat are the proper semantics if our seek point is at the end of the file\nand we run through these pause/resume steps.\nand should we be testing that?",
+      "range": {
+        "startLine": 301,
+        "startChar": 20,
+        "endLine": 301,
+        "endChar": 41
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa74be48_ac69f69c",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-08T17:20:53Z",
+      "side": 1,
+      "message": "Ray, when at the end of the file, the position would not change even after resume and the state gets changed to EAS_STOPPED instead of EAS_PLAY. This behavior is checked at Line: 257 in the DecodeTest.",
+      "parentUuid": "9add7b6e_7b51c616",
       "range": {
         "startLine": 301,
         "startChar": 20,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "9bf51278_0095215c",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-08T17:20:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e54a01cc_b6ec9ab3",
+      "range": {
+        "startLine": 313,
+        "startChar": 12,
+        "endLine": 314,
+        "endChar": 41
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4b2a663_4f4afb98",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 5
@@ -137,6 +233,30 @@
       "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90ab0466_c8d35d4f",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-08T17:20:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4b2a663_4f4afb98",
+      "range": {
+        "startLine": 321,
+        "startChar": 28,
+        "endLine": 321,
+        "endChar": 48
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

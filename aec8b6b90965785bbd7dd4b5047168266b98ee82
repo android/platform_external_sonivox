@@ -332,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "32791f55_ed9ede1d",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-08T17:20:53Z",
+      "side": 1,
+      "message": "Yes, the reference file is created using midiExtractor and has the following parameters set at:\n\nLine: 204, Link: https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/extractors/midi/MidiExtractor.cpp",
+      "parentUuid": "1c9c49b6_4f0b8a9f",
+      "range": {
+        "startLine": 214,
+        "startChar": 41,
+        "endLine": 214,
+        "endChar": 65
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc8d7c45_69a923a1",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 3
@@ -424,6 +448,30 @@
       "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1e7ac90_4b2f7cd0",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-08T17:20:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bd6ff5a_0bb402b4",
+      "range": {
+        "startLine": 219,
+        "startChar": 89,
+        "endLine": 219,
+        "endChar": 99
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -627,6 +675,30 @@
       "side": 1,
       "message": "renderAudio(), now that we\u0027ve said EAS_Resume(), is guaranteed to advance the current location?\nthat\u0027s what the new code is testing for.",
       "parentUuid": "7b3082ee_09345301",
+      "range": {
+        "startLine": 301,
+        "startChar": 6,
+        "endLine": 301,
+        "endChar": 9
+      },
+      "revId": "aec8b6b90965785bbd7dd4b5047168266b98ee82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6fd6d99_0912deb2",
+        "filename": "test/SonivoxTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-06-08T17:20:53Z",
+      "side": 1,
+      "message": "Yes, we the location will be advanced after resume except for the case when we\u0027re at the end of the file. The location will remain same and only the STATE would change to PAUSED state.",
+      "parentUuid": "58854a29_3bc8262b",
       "range": {
         "startLine": 301,
         "startChar": 6,
