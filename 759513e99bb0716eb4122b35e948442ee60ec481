@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b240765c_f1231f76",
+        "filename": "test/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-06-08T17:34:18Z",
+      "side": 1,
+      "message": "Ray,\nUnit tests use push-file with cleanup set to true and this ensures that files are deleted after the test ends. CTS uses MediaPreparer class which doesn\u0027t do that. Hence CTS needs a different name, where as unit tests don\u0027t.",
+      "parentUuid": "c2e1735a_123d8387",
+      "range": {
+        "startLine": 28,
+        "startChar": 46,
+        "endLine": 28,
+        "endChar": 61
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f5688c4_9bff03ff",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 5
