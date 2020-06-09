@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "1b9a805e_c337ed84",
+        "filename": "test/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-06-09T05:14:41Z",
+      "side": 1,
+      "message": "Ray,\nI understand the consistency aspect.\nGiven that the unit tests do it right and CTS is the one which is currently forced to change the paths in the code, wouldn\u0027t it be better to explore ways to get CTS to do it right?\nIf you agree, we will explore what changes are needed in MediaPreparer class to address these appropriately.",
+      "parentUuid": "b19ed4b9_e3aa81c4",
+      "range": {
+        "startLine": 28,
+        "startChar": 46,
+        "endLine": 28,
+        "endChar": 61
+      },
+      "revId": "759513e99bb0716eb4122b35e948442ee60ec481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f5688c4_9bff03ff",
         "filename": "test/SonivoxTest.cpp",
         "patchSetId": 5
