@@ -1,0 +1,12 @@
+Presubmit-Verified+1: Treehugger Robot <treehugger-gerrit@google.com>
+Code-Review+1: Ray Essick <essick@google.com>
+Code-Review+1: Kris Alder <kalder@google.com>
+Code-Review+2: Marco Nelissen <marcone@google.com>
+Code-Review+1: Harish Mahendrakar <harish.mahendrakar@ittiam.com>
+Autosubmit+1: Marco Nelissen <marcone@google.com>
+Lint+1: Lint 🤖 <android-build-prod-ayeaye@system.gserviceaccount.com>
+Submitted-by: Treehugger Robot <treehugger-gerrit@google.com>
+Submitted-at: Mon, 29 Jun 2020 22:57:17 +0000
+Reviewed-on: https://android-review.googlesource.com/c/platform/external/sonivox/+/1316734
+Project: platform/external/sonivox
+Branch: refs/heads/master
