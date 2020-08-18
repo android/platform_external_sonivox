@@ -798,6 +798,10 @@ static EAS_RESULT SMF_GetDeltaTime (EAS_HW_DATA_HANDLE hwInstData, S_SMF_STREAM 
     if ((result = SMF_GetVarLenData(hwInstData, pSMFStream->fileHandle, &ticks)) != EAS_SUCCESS)
         return result;
 
+    /* number of ticks must not exceed 64-bits */
+    if (ticks > (UINT64_MAX - pSMFStream->ticks))
+        return EAS_ERROR_FILE_FORMAT;
+
     pSMFStream->ticks += ticks;
     return EAS_SUCCESS;
 }
