@@ -430,6 +430,12 @@ static EAS_RESULT RTTTL_Event (S_EAS_DATA *pEASData, EAS_VOID_PTR pInstData, EAS
         /* dotted note */
         else if (c == '.')
         {
+            /* Number of ticks must not be greater than 64-bits */
+            if ((ticks >> 1) > (INT32_MAX - ticks))
+            {
+                return EAS_ERROR_FILE_FORMAT;
+            }
+
             /*lint -e{704} shift for performance */
             ticks += ticks >> 1;
         }
@@ -480,12 +486,22 @@ static EAS_RESULT RTTTL_Event (S_EAS_DATA *pEASData, EAS_VOID_PTR pInstData, EAS
                 }
 
                 /* next event is at end of this note */
+                if ((ticks - pData->restTicks) > (INT32_MAX - pData->time))
+                {
+                    return EAS_ERROR_FILE_FORMAT;
+                }
                 pData->time += ticks - pData->restTicks;
             }
 
             /* rest */
             else
+            {
+                if (ticks > (INT32_MAX - pData->time))
+                {
+                    return EAS_ERROR_FILE_FORMAT;
+                }
                 pData->time += ticks;
+            }
 
             /* event found, return to caller */
             break;

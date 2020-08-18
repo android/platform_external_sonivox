@@ -33,6 +33,8 @@
 
 #define JET_INTERFACE
 
+#include <stdint.h>
+
 #include "eas_types.h"
 #include "eas_synthcfg.h"
 #include "eas.h"
