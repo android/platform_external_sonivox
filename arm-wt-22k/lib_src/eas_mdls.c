@@ -142,14 +142,6 @@ extern double log10(double x);
 #define DLS_MAX_INST_COUNT      256
 #define MAX_DLS_WAVE_SIZE       (1024*1024)
 
-#ifndef EAS_U32_MAX
-#define EAS_U32_MAX             (4294967295U)
-#endif
-
-#ifndef EAS_I32_MAX
-#define EAS_I32_MAX             (2147483647)
-#endif
-
 /*------------------------------------
  * typedefs
  *------------------------------------

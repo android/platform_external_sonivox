@@ -798,6 +798,10 @@ static EAS_RESULT SMF_GetDeltaTime (EAS_HW_DATA_HANDLE hwInstData, S_SMF_STREAM 
     if ((result = SMF_GetVarLenData(hwInstData, pSMFStream->fileHandle, &ticks)) != EAS_SUCCESS)
         return result;
 
+    /* number of ticks must not overflow */
+    if (ticks > (EAS_U32_MAX - pSMFStream->ticks))
+        return EAS_ERROR_FILE_FORMAT;
+
     pSMFStream->ticks += ticks;
     return EAS_SUCCESS;
 }
@@ -846,7 +850,6 @@ static EAS_RESULT SMF_ParseMetaEvent (S_EAS_DATA *pEASData, S_SMF_DATA *pSMFData
         return EAS_ERROR_FILE_FORMAT;
     }
     /* prevent numeric overflow caused by a very large len, assume pos > 0 */
-    const EAS_I32 EAS_I32_MAX = 0x7FFFFFFF;
     if ((EAS_I32) len > (EAS_I32_MAX - pos)) {
         ALOGE("%s() too large len = %ld", __func__, (long) len);
         android_errorWriteLog(0x534e4554, "68953854");

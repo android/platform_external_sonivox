@@ -35,6 +35,8 @@
 #ifndef _EAS_TYPES_H
 #define _EAS_TYPES_H
 
+#include <limits.h>
+
 /* EAS_RESULT return codes */
 typedef long EAS_RESULT;
 #define EAS_SUCCESS                         0
@@ -128,6 +130,10 @@ typedef long EAS_I32;
 typedef unsigned EAS_UINT;
 typedef int EAS_INT;
 typedef long EAS_LONG;
+
+/* max value definitions */
+#define EAS_I32_MAX LONG_MAX
+#define EAS_U32_MAX ULONG_MAX
 
 /* audio output type */
 typedef short EAS_PCM;
