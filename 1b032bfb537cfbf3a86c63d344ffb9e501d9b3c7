@@ -16,6 +16,52 @@
       "revId": "1b032bfb537cfbf3a86c63d344ffb9e501d9b3c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e15f758_bfccdae9",
+        "filename": "arm-wt-22k/lib_src/eas_rtttl.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-09-02T01:03:12Z",
+      "side": 1,
+      "message": "ticks is EAS_I32;\nwhich I read as:\ntypedef unsigned long EAS_U32;\ntypedef long EAS_I32;\n\n\nwhat prompted a need for 64 bit validation?\n\nshould all of the INT64_MAX here be recast as INT32_MAX?",
+      "range": {
+        "startLine": 434,
+        "startChar": 17,
+        "endLine": 434,
+        "endChar": 22
+      },
+      "revId": "1b032bfb537cfbf3a86c63d344ffb9e501d9b3c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f707995_fa0081f7",
+        "filename": "arm-wt-22k/lib_src/eas_smf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-09-02T01:03:12Z",
+      "side": 1,
+      "message": "line 796 says \"EAS_U32 ticks\" -- so I would assume a 32 bit value here.\nnot sure that UINT64_MAX is appropriate here.",
+      "range": {
+        "startLine": 802,
+        "startChar": 8,
+        "endLine": 802,
+        "endChar": 27
+      },
+      "revId": "1b032bfb537cfbf3a86c63d344ffb9e501d9b3c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
