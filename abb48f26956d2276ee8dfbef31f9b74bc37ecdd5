@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0d7b707_1562e572",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-09-11T20:53:58Z",
+      "side": 1,
+      "message": "harish and i were talking about this a few days ago.\nI think something we discussed, but didn\u0027t reach a conclusion about, is whether\nwe should make the definitions for EAS_I32 be \"int32_t\" instead of \"long\".\nthat would drive it to 32-bits.\n\n[i forgot that long is 32/64 bits depending on architecture.... \n\nHarish -- you want to chime in here?",
+      "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
