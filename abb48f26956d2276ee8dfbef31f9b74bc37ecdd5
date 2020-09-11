@@ -86,6 +86,23 @@
       "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cddd8a2_b38d0d64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001525
+      },
+      "writtenOn": "2020-09-11T23:58:55Z",
+      "side": 1,
+      "message": "I\u0027m not sold on replacing the hardcoded values for EAS_I32_MAX and EAS_U32_MAX with their *actual* maximums from limits.h\n\nThe sonivox code was not written with 64-bit in mind, and so there might very will be places in the code where a ticks value that cannot be represented in 32 bits will mess things up. Wouldn\u0027t it be safer to keep the max at INT_MAX and UINT_MAX?\n\n",
+      "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
