@@ -69,6 +69,23 @@
       "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c08445d5_3199a412",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2020-09-11T22:30:50Z",
+      "side": 1,
+      "message": "need marco\u0027s approval as the only owner we have left in the group for this tree.",
+      "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
