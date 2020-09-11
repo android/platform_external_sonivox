@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "3654b811_52ae2e7b",
+        "filename": "arm-wt-22k/lib_src/eas_rtttl.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-09-11T21:09:02Z",
+      "side": 1,
+      "message": "Updated to use EAS_I32_MAX which is defined as LONG_MAX",
+      "parentUuid": "5e15f758_bfccdae9",
+      "range": {
+        "startLine": 434,
+        "startChar": 17,
+        "endLine": 434,
+        "endChar": 22
+      },
+      "revId": "1b032bfb537cfbf3a86c63d344ffb9e501d9b3c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f707995_fa0081f7",
         "filename": "arm-wt-22k/lib_src/eas_smf.c",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "1b032bfb537cfbf3a86c63d344ffb9e501d9b3c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8089ef25_e3f76fd4",
+        "filename": "arm-wt-22k/lib_src/eas_smf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-09-11T21:09:02Z",
+      "side": 1,
+      "message": "Updated to use EAS_I32_MAX which is defined as LONG_MAX",
+      "parentUuid": "0f707995_fa0081f7",
+      "range": {
+        "startLine": 802,
+        "startChar": 8,
+        "endLine": 802,
+        "endChar": 27
+      },
+      "revId": "1b032bfb537cfbf3a86c63d344ffb9e501d9b3c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

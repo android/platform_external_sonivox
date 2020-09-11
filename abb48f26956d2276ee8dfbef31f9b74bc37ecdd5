@@ -16,6 +16,24 @@
       "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb07baf7_31bf64e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-09-11T21:09:02Z",
+      "side": 1,
+      "message": "Ray,\nNeel is trying to change the library to define EAS_U32/EAS_I32 as uint32_t/int32_t.\nBecause the library uses these datatypes to pass few pointers around, changing the datatype definitions as above isn\u0027t a trivial one.\nWhile he continues to work on making those required changes, we felt it is better to close this out to ensure that the fuzzer continues to run and doesn\u0027t stop on these overflow errors.\nChange done here now will work well on both 32bit builds and 64bit builds by using correct limits and it will still be valid as and when we change the typedefs appropriately.",
+      "parentUuid": "c0d7b707_1562e572",
+      "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
