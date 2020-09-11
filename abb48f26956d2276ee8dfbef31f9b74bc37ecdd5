@@ -52,6 +52,23 @@
       "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5d31812_58ad7620",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-09-11T22:17:55Z",
+      "side": 1,
+      "message": "Ray,\nThis is ready to be submitted.\nCan you please submit?\nThanks.",
+      "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
