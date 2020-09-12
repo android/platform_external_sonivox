@@ -103,6 +103,24 @@
       "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924d039c_03d5b64f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-09-12T00:11:10Z",
+      "side": 1,
+      "message": "Marco,\nSure. \n\nNeel,\nPlease revert to patchset 1 and make the changes as suggested by Ray in first comments (i.e us 32bit max values instead of 64bit max values)",
+      "parentUuid": "4cddd8a2_b38d0d64",
+      "revId": "abb48f26956d2276ee8dfbef31f9b74bc37ecdd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
