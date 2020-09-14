@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "685d537d_8ce606e3",
+        "filename": "arm-wt-22k/lib_src/eas_rtttl.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-09-14T13:38:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01c741a9_ec92e9e1",
+      "range": {
+        "startLine": 433,
+        "startChar": 54,
+        "endLine": 433,
+        "endChar": 65
+      },
+      "revId": "bf591d9aff1c5349e42a15b862a19986fef4653f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eab10300_fe7ede87",
         "filename": "arm-wt-22k/lib_src/eas_smf.c",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "bf591d9aff1c5349e42a15b862a19986fef4653f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a130fb4_a837552d",
+        "filename": "arm-wt-22k/lib_src/eas_smf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1572775
+      },
+      "writtenOn": "2020-09-14T13:38:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eab10300_fe7ede87",
+      "range": {
+        "startLine": 801,
+        "startChar": 38,
+        "endLine": 801,
+        "endChar": 44
+      },
+      "revId": "bf591d9aff1c5349e42a15b862a19986fef4653f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
