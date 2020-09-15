@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07ec7ef1_bdd146d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2020-09-15T01:54:26Z",
+      "side": 1,
+      "message": "Ray,\nThis is now ready to be submitted.\nCan you please review and submit this?\nThanks.",
+      "revId": "0d1aa6e64fbfb7c0af781d6ee93c29620d3ca755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
