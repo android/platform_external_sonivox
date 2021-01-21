@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+package {
+    default_applicable_licenses: ["external_sonivox_license"],
+}
+
 cc_test {
     name: "SonivoxTest",
     gtest: true,
