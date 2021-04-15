@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "607af795_8833ca0a",
+        "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2021-04-15T17:26:55Z",
+      "side": 1,
+      "message": "not convinced that INT32_MIN is the correct value here.\n\nif numSamples\u003c\u003c  is large positive and phaseFrac is negative.\nwe can overflow in the other direction -- in which case it would seem that INT32_MAX is appropriate.\n\nfeels like perhaps right calculation is more like:\n   phaseFrac\u003e0 ? INT32_MIN : INT32_MAX",
+      "range": {
+        "startLine": 487,
+        "startChar": 12,
+        "endLine": 487,
+        "endChar": 35
+      },
+      "revId": "2e7bd2c29163fda24e78981ea5ea709dc7444af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aabef8a_33b6aa62",
+        "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2021-04-15T17:26:55Z",
+      "side": 1,
+      "message": "if we set to INT32_MIN as suggested to the new patch,\nthis is always going to declare an error.",
+      "range": {
+        "startLine": 494,
+        "startChar": 7,
+        "endLine": 494,
+        "endChar": 42
+      },
+      "revId": "2e7bd2c29163fda24e78981ea5ea709dc7444af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
