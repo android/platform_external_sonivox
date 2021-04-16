@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27d430cd_1fa26382",
+        "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2021-04-16T05:55:52Z",
+      "side": 1,
+      "message": "pWTVoice-\u003ephaseFrac\u0027s data type is \"unsigned long\", hence, it\u0027s value can never be negative. So, seems like overflow can happen only in 1 direction.",
+      "parentUuid": "607af795_8833ca0a",
+      "range": {
+        "startLine": 487,
+        "startChar": 12,
+        "endLine": 487,
+        "endChar": 35
+      },
+      "revId": "2e7bd2c29163fda24e78981ea5ea709dc7444af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6aabef8a_33b6aa62",
         "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
         "patchSetId": 2
