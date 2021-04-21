@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d498866_19c371cd",
+        "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2021-04-21T04:26:48Z",
+      "side": 1,
+      "message": "Posting Ray\u0027s comment on the bug for visibility here\n\n      numSamples \u003d (EAS_I32) ((numSamples \u003c\u003c NUM_PHASE_FRAC_BITS) - pWTVoice-\u003ephaseFrac);\n                            \u003c--- \u0027numSamples\u0027 is of type EAS_I32 (signed long), and \u0027pWTVoice-\u003ephaseFrac\u0027 is of type EAS_U32 (unsigned long).\n                                   Hence the subtraction result is implicitly casted to \u0027unsigned long\u0027, leading to unsigned integer overflow.\n\nthe underflow we\u0027re talking about here is that the subtraction crosses 0?   or -2^31.\nas i read the analysis, i\u0027m thinking it\u0027s as it crosses 0.  [and it may be as simple as casting phaseFrac as a signed value [assuming that it\u0027s range doesn\u0027t go about 2^31)",
+      "parentUuid": "27d430cd_1fa26382",
+      "range": {
+        "startLine": 487,
+        "startChar": 12,
+        "endLine": 487,
+        "endChar": 35
+      },
+      "revId": "2e7bd2c29163fda24e78981ea5ea709dc7444af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6aabef8a_33b6aa62",
         "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
         "patchSetId": 2
