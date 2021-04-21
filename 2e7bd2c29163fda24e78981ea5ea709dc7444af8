@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "952458fb_e316f4b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2021-04-21T04:35:27Z",
+      "side": 1,
+      "message": "(seems I never published this gerrit review)",
+      "revId": "2e7bd2c29163fda24e78981ea5ea709dc7444af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "607af795_8833ca0a",
@@ -86,6 +103,30 @@
       "side": 1,
       "message": "Ayush,\nCan you check what were the values of pWTVoice-\u003ephaseFrac and numSamples when the overflow was seen?\nAnd also look at what is the max for phaseFrac",
       "parentUuid": "6d498866_19c371cd",
+      "range": {
+        "startLine": 487,
+        "startChar": 12,
+        "endLine": 487,
+        "endChar": 35
+      },
+      "revId": "2e7bd2c29163fda24e78981ea5ea709dc7444af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa55ccbe_8461e784",
+        "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2021-04-21T04:35:27Z",
+      "side": 1,
+      "message": "my mistake -- i thought I looked at the declaration and saw \"EAS_I32\"\nbut i see \"EAS_U32\" when i looked just now.\n\nre-reading the bug report -- it\u0027s unclear to me whether the problem is\nthat this went past INT32_MIN or....\nsince the operation was I32 - U32, things get carried out as \"u32\", meaning unsigned.... which means the failure scenario was as we crossed 0, not -2^31\n\nthe security team analysis leads me to think the failure point is as it crossed\n0.",
+      "parentUuid": "27d430cd_1fa26382",
       "range": {
         "startLine": 487,
         "startChar": 12,
