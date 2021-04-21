@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9dadd1f_17ec5bba",
+        "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2021-04-21T04:27:59Z",
+      "side": 1,
+      "message": "Ayush,\nCan you check what were the values of pWTVoice-\u003ephaseFrac and numSamples when the overflow was seen?\nAnd also look at what is the max for phaseFrac",
+      "parentUuid": "6d498866_19c371cd",
+      "range": {
+        "startLine": 487,
+        "startChar": 12,
+        "endLine": 487,
+        "endChar": 35
+      },
+      "revId": "2e7bd2c29163fda24e78981ea5ea709dc7444af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6aabef8a_33b6aa62",
         "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
         "patchSetId": 2
