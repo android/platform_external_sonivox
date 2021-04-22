@@ -161,6 +161,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bb8151c_5585de87",
+        "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2021-04-22T15:30:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "890f56da_e1912c08",
+      "range": {
+        "startLine": 487,
+        "startChar": 12,
+        "endLine": 487,
+        "endChar": 35
+      },
+      "revId": "2e7bd2c29163fda24e78981ea5ea709dc7444af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6aabef8a_33b6aa62",
@@ -174,6 +198,30 @@
       "writtenOn": "2021-04-15T17:26:55Z",
       "side": 1,
       "message": "if we set to INT32_MIN as suggested to the new patch,\nthis is always going to declare an error.",
+      "range": {
+        "startLine": 494,
+        "startChar": 7,
+        "endLine": 494,
+        "endChar": 42
+      },
+      "revId": "2e7bd2c29163fda24e78981ea5ea709dc7444af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa1fcdde_45b21e13",
+        "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2021-04-22T15:30:17Z",
+      "side": 1,
+      "message": "patchset 3  doesn\u0027t set numSamples to INT32_MIN now.",
+      "parentUuid": "6aabef8a_33b6aa62",
       "range": {
         "startLine": 494,
         "startChar": 7,
