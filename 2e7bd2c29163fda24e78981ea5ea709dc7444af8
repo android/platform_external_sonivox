@@ -139,6 +139,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "890f56da_e1912c08",
+        "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2021-04-22T15:28:06Z",
+      "side": 1,
+      "message": "During overflow, the values observed for numSamples and phaseFrac are 0 and 6200 respectively.\n \nThe specs doesn\u0027t limit the value that phaseFrac can take. After code analysis, I deduced that phaseFrac can take max upto 23 bits.\n \nSince this is less than 32 bits, we can cast phaseFrac to signed. The change would be:\n\nnumSamples \u003d (numSamples \u003c\u003c NUM_PHASE_FRAC_BITS) - (EAS_I32) pWTVoice-\u003ephaseFrac;",
+      "parentUuid": "fa55ccbe_8461e784",
+      "range": {
+        "startLine": 487,
+        "startChar": 12,
+        "endLine": 487,
+        "endChar": 35
+      },
+      "revId": "2e7bd2c29163fda24e78981ea5ea709dc7444af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6aabef8a_33b6aa62",
         "filename": "arm-wt-22k/lib_src/eas_wtsynth.c",
         "patchSetId": 2
