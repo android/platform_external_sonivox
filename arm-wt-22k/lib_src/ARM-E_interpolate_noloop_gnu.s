@@ -54,7 +54,6 @@ tmp2	.req	r9
 @SaveRegs	RLIST	{r4-r9,lr}
 @RestoreRegs	RLIST	{r4-r9,pc}
 
-	.func	WT_InterpolateNoLoop
 WT_InterpolateNoLoop:
 
 	STMFD	sp!, {r4-r9,lr}
@@ -73,13 +72,13 @@ WT_InterpolateNoLoop:
 
 InterpolationLoop:
 
-	.ifdef	SAMPLES_8_BIT
+	#ifdef	SAMPLES_8_BIT
 	LDRSB	tmp0, [pPhaseAccum]				@ tmp0 = x0
 	LDRSB	tmp1, [pPhaseAccum, #1]			@ tmp1 = x1
-	.else
+	#else
 	LDRSH	tmp0, [pPhaseAccum]				@ tmp0 = x0
 	LDRSH	tmp1, [pPhaseAccum, #2]			@ tmp1 = x1
-	.endif
+	#endif
 
 	ADD		tmp2, phaseIncrement, phaseFrac	@ increment pointer here to avoid pipeline stall
 
@@ -93,11 +92,11 @@ InterpolationLoop:
 @ saturation operation should take in the filter before scaling back to
 @ 16 bits or the signal path should be increased to 18 bits or more.
 
-	.ifdef	SAMPLES_8_BIT
+	#ifdef	SAMPLES_8_BIT
 	MOV		tmp0, tmp0, LSL #6							@ boost 8-bit signal by 36dB
-	.else
+	#else
 	MOV		tmp0, tmp0, ASR #2							@ reduce 16-bit signal by 12dB
-	.endif															
+	#endif															
 	
 	ADD		tmp1, tmp0, tmp1, ASR #(NUM_EG1_FRAC_BITS-6)	@ tmp1 = tmp0 + (tmp1 >> (15-6))
 															@	   = x0 + f * (x1 - x0) == interpolated result
@@ -125,6 +124,5 @@ InterpolationLoop:
 	LDMFD	sp!,{r4-r9,lr}
 	BX		lr
 
-	.endfunc
 	.end
 	
