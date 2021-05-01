@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f537a3a_5b4236b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2021-05-01T00:07:25Z",
+      "side": 1,
+      "message": "I have uploaded the following to change OWNERS file\nhttps://android-review.googlesource.com/c/platform/external/sonivox/+/1692768\nOnce that is merged, this CL can be approved by Ray.",
+      "revId": "dac9e5881db01dbe2cb1a1a7fdb04aca32b1a085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
