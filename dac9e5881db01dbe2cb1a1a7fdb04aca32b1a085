@@ -16,6 +16,69 @@
       "message": "I have uploaded the following to change OWNERS file\nhttps://android-review.googlesource.com/c/platform/external/sonivox/+/1692768\nOnce that is merged, this CL can be approved by Ray.",
       "revId": "dac9e5881db01dbe2cb1a1a7fdb04aca32b1a085",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12e8a179_d0bd1c8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2021-05-01T00:16:46Z",
+      "side": 1,
+      "message": "a pet issue with me when developers make assumptions about the else side..\nsince the problem was there and you\u0027re just changing which preprocessor -- I can let it go.",
+      "revId": "dac9e5881db01dbe2cb1a1a7fdb04aca32b1a085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d7e6afc_9485e029",
+        "filename": "arm-wt-22k/lib_src/ARM-E_interpolate_loop_gnu.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2021-05-01T00:16:46Z",
+      "side": 1,
+      "message": "#elif SAMPLES_16_BIT",
+      "range": {
+        "startLine": 86,
+        "startChar": 1,
+        "endLine": 86,
+        "endChar": 6
+      },
+      "revId": "dac9e5881db01dbe2cb1a1a7fdb04aca32b1a085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3a8afc8_fe1b06b7",
+        "filename": "arm-wt-22k/lib_src/ARM-E_interpolate_loop_gnu.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2021-05-01T00:16:46Z",
+      "side": 1,
+      "message": "#else\n#error must define one of ....\n#endif",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 7
+      },
+      "revId": "dac9e5881db01dbe2cb1a1a7fdb04aca32b1a085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
