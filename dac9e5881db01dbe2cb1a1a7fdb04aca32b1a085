@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf2ba226_255f6f23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-05-03T17:12:46Z",
+      "side": 1,
+      "message": "done, and in the one other file where this occurred too...",
+      "revId": "dac9e5881db01dbe2cb1a1a7fdb04aca32b1a085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d7e6afc_9485e029",
@@ -58,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac16a500_47425293",
+        "filename": "arm-wt-22k/lib_src/ARM-E_interpolate_loop_gnu.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-05-03T17:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d7e6afc_9485e029",
+      "range": {
+        "startLine": 86,
+        "startChar": 1,
+        "endLine": 86,
+        "endChar": 6
+      },
+      "revId": "dac9e5881db01dbe2cb1a1a7fdb04aca32b1a085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3a8afc8_fe1b06b7",
@@ -71,6 +112,30 @@
       "writtenOn": "2021-05-01T00:16:46Z",
       "side": 1,
       "message": "#else\n#error must define one of ....\n#endif",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 7
+      },
+      "revId": "dac9e5881db01dbe2cb1a1a7fdb04aca32b1a085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae8f6dc_98d74dcd",
+        "filename": "arm-wt-22k/lib_src/ARM-E_interpolate_loop_gnu.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-05-03T17:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3a8afc8_fe1b06b7",
       "range": {
         "startLine": 89,
         "startChar": 2,
