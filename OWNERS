@@ -1,4 +1,3 @@
-# Default code reviewers picked from top 3 or more developers.
-# Please update this list if you find better candidates.
-marcone@google.com
-wjia@google.com
+# owners for external/sonivox
+include platform/frameworks/av:/media/janitors/codec_OWNERS
+essick@google.com
