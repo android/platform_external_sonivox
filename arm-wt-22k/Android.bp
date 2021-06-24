@@ -111,22 +111,15 @@ cc_defaults {
                 // In order to use #include instead of .include
                 "-xassembler-with-cpp",
 
-                "-Wa,--defsym,SAMPLE_RATE_22050=1",
-                "-Wa,--defsym,STEREO_OUTPUT=1",
-                "-Wa,--defsym,FILTER_ENABLED=1",
-                "-Wa,--defsym,SAMPLES_16_BIT=1",
+                "-DSAMPLE_RATE_22050=1",
+                "-DSTEREO_OUTPUT=1",
+                "-DFILTER_ENABLED=1",
+                "-DSAMPLES_16_BIT=1",
             ],
 
             cflags: [
                 "-DNATIVE_EAS_KERNEL",
             ],
-
-            // .s files not ported for Clang assembler yet.
-            clang_asflags: ["-no-integrated-as"],
-        },
-        arm64: {
-            // .s files not ported for Clang assembler yet.
-            clang_asflags: ["-no-integrated-as"],
         },
     },
     sanitize: {
